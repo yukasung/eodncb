@@ -13,16 +13,17 @@ export default async function RootLayout({ children }) {
   const pageMap = await getPageMap()
   return (
     <html lang="th" dir="ltr" suppressHydrationWarning>
-      <Head color={{ hue: 173, saturation: 70 }} />
+      <Head />
       <body>
         <Layout
-          navbar={<Navbar logo={<span className="brand"><span className="brand-mark">N</span><strong>NCB <span className="brand-sub">Project Docs</span></strong></span>} projectLink="https://github.com/yukasung/eodncb" />}
+          navbar={<Navbar logo={<span className="x:text-sm x:font-semibold x:tracking-normal x:sm:text-base">NCB Project Docs</span>} />}
           pageMap={pageMap}
           docsRepositoryBase="https://github.com/yukasung/eodncb/tree/main"
           search={<Search placeholder="ค้นหาเอกสาร DPD, TDR, ฟิลด์…" emptyResult="ไม่พบเอกสารที่ตรงกับคำค้น" loading="กำลังค้นหา…" errorText="โหลดดัชนีค้นหาไม่สำเร็จ โปรดลองใหม่" />}
           footer={<Footer>NCB Project Documentation · สรุปจากเอกสารในโฟลเดอร์โครงการ · 18 ตุลาคม 2569</Footer>}
-          editLink="แก้ไขหน้านี้บน GitHub"
-          feedback={{ content: 'แจ้งข้อแก้ไขเอกสาร', labels: 'documentation' }}
+          editLink={null}
+          feedback={{ content: <span hidden /> }}
+          sidebar={{ defaultMenuCollapseLevel: 1 }}
           toc={{ title: 'ในหน้านี้', backToTop: 'กลับด้านบน' }}
         >
           {children}
