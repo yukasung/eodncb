@@ -1,0 +1,31 @@
+import Link from 'next/link'
+
+# NCB Project Documentation
+
+<div className="hero">
+  <div className="eyebrow">TCG · DATA & REPORTING</div>
+  <p>คู่มืออ่านภาพรวมโครงการ เชื่อมโยงข้อมูลจาก EOD และ EOM ไปสู่รายงาน NCB พร้อมพจนานุกรมฟิลด์ กฎธุรกิจ และรายการที่ต้องยืนยันก่อนพัฒนา</p>
+</div>
+
+เว็บนี้สรุปจากเอกสารโครงการ 11 ไฟล์ที่ได้รับในวันที่ 18 ตุลาคม 2569 สำหรับทีมวิเคราะห์ระบบ พัฒนา ทดสอบ และผู้รับผิดชอบข้อมูล โดยแยกข้อความจากต้นฉบับออกจากข้อเสนอแนะและประเด็นที่ยังไม่สอดคล้องกัน
+
+<div className="doc-grid">
+  <Link className="doc-link" href="/overview"><strong>01 · เข้าใจขอบเขต</strong><span>Consumer, Commercial และการรายงาน LG by ID</span></Link>
+  <Link className="doc-link" href="/data-flow"><strong>02 · ติดตามข้อมูล</strong><span>ต้นทางรายวัน ข้อมูลสิ้นเดือน และ Data Warehouse</span></Link>
+  <Link className="doc-link" href="/fields"><strong>03 · เปิดพจนานุกรมฟิลด์</strong><span>Mapping เต็มตารางจากเอกสารทั้งสามแนวทาง</span></Link>
+  <Link className="doc-link" href="/business-rules"><strong>04 · อ่านกฎคำนวณ</strong><span>DFD, DPD, TDR และ Amount Past Due</span></Link>
+  <Link className="doc-link" href="/testing"><strong>05 · ตรวจความพร้อม UAT</strong><span>ขอบเขตทดสอบและสถานะตามไฟล์ที่ได้รับ</span></Link>
+  <Link className="doc-link" href="/open-questions"><strong>06 · ยืนยันก่อนพัฒนา</strong><span>ข้อขัดแย้งและคำถามที่ต้องมีคำตอบร่วมกัน</span></Link>
+</div>
+
+## วิธีใช้เอกสาร
+
+เริ่มจาก [ภาพรวม](/overview) และ [กระบวนการข้อมูล](/data-flow) ก่อนเลือก Mapping ที่จะใช้จริง จากนั้นอ่าน [กฎธุรกิจ](/business-rules) คู่กับ [สถานะบัญชี](/account-status) และตรวจ [ประเด็นที่ต้องยืนยัน](/open-questions) ก่อนกำหนดผลทดสอบที่คาดหวัง
+
+ตารางฟิลด์รักษาชื่อสะกดตามต้นฉบับเพื่อให้ตามกลับได้ การปรากฏชื่อฟิลด์ในตารางยังไม่ยืนยันว่ามีฟิลด์นั้นในฐานข้อมูลจริง เอกสารชุดนี้ไม่มี DDL, stored procedure หรือซอร์สโค้ดระบบให้ตรวจเทียบ
+
+## สถานะของข้อมูลในเว็บ
+
+ข้อมูลนี้เป็นสรุปข้อกำหนดในไฟล์ที่ได้รับ ไม่ใช่ผลตรวจระบบ production และไม่ได้ตรวจยืนยันประกาศภายนอกฉบับปัจจุบัน คำว่า “ปัจจุบัน” ในเอกสารต้นทางอ้างถึงช่วงเวลาที่เอกสารนั้นจัดทำ โปรดดู [ทะเบียนแหล่งอ้างอิง](/sources) และวันตัดข้อมูลของแต่ละแหล่ง
+
+**แหล่งอ้างอิง:** S01–S11 ตามทะเบียนเอกสาร

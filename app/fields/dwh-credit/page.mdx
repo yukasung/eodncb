@@ -1,0 +1,73 @@
+# DWH · Commercial Report
+
+ถอดจาก S07: `NCB (DATAWAREHOUSE).docx` ตารางที่ 5 โดยรักษาชื่อสะกดตามเอกสาร ช่องไม่ระบุไม่ใช่การกำหนดให้ส่งค่าว่าง
+
+**การใช้ตาราง:** ใช้ร่วมกับ [กฎธุรกิจ](/business-rules) และ [ประเด็นที่ต้องยืนยัน](/open-questions) ค่าตั้งต้นในตารางไม่ยกเลิกเงื่อนไขเฉพาะกรณี
+
+| Field Name | ความหมาย | ชื่อบนรายงาน | ฟิลด์ต้นทาง / ค่าตั้งต้น | ตารางต้นทาง / ข้อกำหนด |
+| --- | --- | --- | --- | --- |
+| Period | เดือนและปีรายงาน NCB | period | NCB เป็นคนเติม field นี้เอง เช่น 2026-05 | NCB เป็นคนเติม field นี้เอง เช่น 2026-05 |
+| Customer Code | เลข CIF | customer_code | customercode | TEMPDWHCBS |
+| Effective Date | วันที่ในรูปแบบปี พ.ศ. | eff_date | NCB เป็นตัวจัดการ format เอง | NCB เป็นตัวจัดการ format เอง |
+| ID Number / Registration ID | เลขที่นิติบุคคล (นำส่งเป็น 13 หลักหากขึ้นทะเบียนกับ กรมพัฒฯ หากเป็นหน่วยงานรัฐ ให้ใช้เลขของกรมบัญชีกลาง) | card_id | idnumber | TEMPDWHCBS |
+| Branch Code | รหัสสาขา (ขึ้นอยู่กับ บสย. จะใช้รหัสอะไร NCB ไม่บังคับ ปัจจุบันรายงานโค้ดเดียวคือ 0400) | branch_code | 0400 | 0400 |
+| Account Type | ประเภทบัญชี (ประเภทสินเชื่อ โดย บสย. ใช้รหัส 38) | account_type | 38 | 38 |
+| Account Number | เลขที่บัญชี / เลขที่หนังสือค้ำประกันสินเชื่อ (LG) | account_number | accountnumber | TEMPDWHCBS |
+| Purpose Loan | วัตถุประสงค์ในการขอสินเชื่อ | purpose_loan1 | 1120001 | 1120001 |
+| Purpose Loan | วัตถุประสงค์ในการขอสินเชื่อ | purpose_loan2 | ค่าว่าง | ค่าว่าง |
+| Member Code | รหัสสมาชิก (นำส่ง code) | member_code | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 |
+| Member Name | ชื่อย่อสมาชิก (นำส่ง TCG) | member_name | TCG | TCG |
+| Date Account Opend / Open Date | วันที่เปิดบัญชี / วันที่อนุมัติค้ำประกันและตั้งวงเงินค้ำประกัน | date_account_opened | dateaccountopend | TEMPDWHCBS |
+| Date Account Closed / Close Date | วันที่ปิดบัญชี / วันที่ยกเลิกการค้ำประกัน L/G (สถานะ 500) | date_account_closed | dateaccountclosed | TEMPDWHCBS |
+| As Of Date | วันที่ส่งข้อมูล (ข้อมูล ณ วันที่)<br />วันเดียวกับ eff_date เป็น พ.ศ. | as_of_date | NCB เป็นตัวจัดการ format เอง | NCB เป็นตัวจัดการ format เอง |
+| Payment Terms | ประเภทของค่างวด (ความถี่ในการผ่อนชำระ) | installment_frequency | ลูกค้า (A-E2) = 0, <br />ลูกหนี้(F) = 30 | ลูกค้า (A-E2) = 0, <br />ลูกหนี้(F) = 30 |
+| Credit Type | ประเภทสินเชื่อ | credit_type | 1060035 | 1060035 |
+| Initial Amount Loan | เงินต้น - คงเหลือ | initial_amount_loan | creditlimited | TEMPDWHCBS |
+| Currency Code | รหัสเงิน | currency_code | 1070151 | 1070151 |
+| Number Of Installments | จำนวนงวด (จำนวนงวดที่ต้องผ่อนชำระ) | Installment_number_of_payments | 0 | 0 |
+| Payment Amount | ค่างวดหรือยอดผ่อนชำระ/ยอดชำระในแต่ละงวด) | installment_amount | 0 | 0 |
+| Date Of Last Payment / Last Payment Date | วันที่ชำระหนี้ครั้งล่าสุด | date_of_last_payment | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
+| Date Of Last Restructuring / Restructure Date | วันที่ปรับปรุงโครงสร้างหนี้<br />** ดึง TDR Date ล่าสุดมา ไม่สนใจ active/inactive | date_of_restructuring | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
+| TDR Code | TDR Code | code_of_restructuring | 00 | 00 |
+| Close Payment Amount | เงินต้น-ที่จ่ายแล้ว | close_payment_amount | ค่าว่าง | ค่าว่าง |
+| Write Of Amount | ไม่ระบุ | write_of_amount | ค่าว่าง | ค่าว่าง |
+| Account Status | สถานะบัญชี | account_status | NCB mapping code ตามเงื่อนไข | NCB mapping code ตามเงื่อนไข |
+| Default Date | วันที่เริ่มมีการผิดนัดชำระ | default_date | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
+| Delinquent Status | ไม่ระบุ | delinquent_status | ค่าว่าง | ค่าว่าง |
+| Credit Limit Type | ไม่ระบุ | credit_limit_type | ค่าว่าง | ค่าว่าง |
+| Percent Payment | สัดส่วนความรับผิด | percent_payment | ค่าว่าง | ค่าว่าง |
+| Credit Card Type | ประเภทการ์ดลูกหนี้ | credit_card_type | idtype | TEMPDWHCBS |
+| Number Of Days Past | NCB DPD Code | number_of_days_past | 1160001 | 1160001 |
+| Number Of Days Past (จำนวนวัน) | วันค้าง (จำนวนวันค้างชำระ) | number_of_days_past_2 | 0 | 0 |
+| Amount Past Due | จำนวนค้าง (ยอดหนี้ที่เกินกำหนดชำระ) | amount_past_due | 0 | 0 |
+| Amount Owend | วงเงินคงเหลือ (ยอดหนี้คงเหลือ) | outstanding_amount | 0 | 0 |
+| Ownership Indicator | ผู้ถือกรรมสิทธิ์ (ลักษณะการกู้ กู้หลัก = 01 กู้ร่วม = 04) | ownership_indicator | data_type | TEMPDWHCBS |
+| Number of co-borrower | จำนวนผู้กู้ร่วม (ผู้กู้ + ผู้กู้ร่วม) | number_of_borrower | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม |
+| Unit Make | ไม่ระบุ | unit_make | ค่าว่าง | ค่าว่าง |
+| Unit Model | ไม่ระบุ | unit_model | ค่าว่าง | ค่าว่าง |
+| Status LG | สถานะ LG | status_lg | statuslg | TEMPDWHCBS |
+| Status Grade | เกรดลูกหนี้ | status_grade | Grade | DataLG |
+| Claim Pay Date | วันจ่ายค่าประกันชดเชย | claim_pay_date | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
+| Bkr Filling Date | วันที่ขอยื่นรับชำระหนี้ | bkr_filling_date | ReqRepayDate | LTDataCaseMain |
+| Filling Amount | จำนวนเงินขอยื่นรับชำระหนี้ | filling_amount | FillingAmount | LTDataCaseMain |
+| Frozen Asset Date | วันที่พิทักษ์ทรัพย์เด็ดขาด บสย | frozenasset_date | FrozenAssetDate | LTDataCaseMain |
+| Other Frozen Asset Date | วันที่พิทักษ์ทรัพย์เด็ดขาดอื่น (นอก บยส) | other_frozenasset_date | OtherFrozenAssDate | LTDataCaseMain |
+| Petition Date | วันที่ศาลอนุญาติสวมสิทธิ์ | petition_date | PetitionDate | LTDataCaseMain |
+| Bankruptcy Date | วันที่ปลดล้มละลาย | bankruptcy_date | BankruptcyDate | LTDataCaseMain |
+| Bad Debt Date | วันทีตัดหนี้สูญ | bad_dept_date | BadDebtDate | LTDataCaseMain |
+| File Date Temp | วันที่ยื่นฟ้อง | file_date_temp | FillingDate | LTDataCaseMain |
+| Black Case No | เลขที่คดีดำ | black_case_no | BlackCaseNo | LTDataCaseMain |
+| Withdraw Date | วันที่ บสย.ถอนฟ้อง | withdraw_date | WithdrawDate | LTDataCaseMain |
+| Warrant Date | วันที่ออกหมาย | warrant_date | WarrantDate | LTDataCaseMain |
+| Jm Trial Date | วันที่พิพากษาชั้นต้น | jm_trial_date | JmTrialDate | LTDataCaseMain |
+| Red Case No | เลขที่คดีแดง | red_case_no | RedCaseNo | LTDataCaseMain |
+| Bank | ธนาคาร (ตัวหนังสือ) | bank | BankId | DataLG |
+| Branch | สาขา (ตัวหนังสือ) | branch | bankbranchcode | TEMPDWHCBS |
+| Project | โครงการ (ตัวหนังสือ) | project | ClaimTypeId | DataLG |
+| Sub Project | โครงการย่อย (ตัวหนังสือ) | sub_project | ClaimSubTypeId | DataLG |
+| Open Date Original | Open date เดิม | open_date_original | dateaccountopend | TEMPDWHCBS |
+| Maturity Date | วันที่ครบกำหนดสัญญา | maturity_date | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
+| Contract Number | เลขแผน TDR active ล่าสุด | contract_number | ค่าว่าง | ค่าว่าง |
+| Last Contract Number | เลขแผน TDR active/inactive มาแสดงล่าสุด | last_contract_number | ค่าว่าง | ค่าว่าง |
+
+รวม 63 แถวตามตารางต้นฉบับ ดู [ทะเบียนแหล่งอ้างอิง](/sources) สำหรับไฟล์และขอบเขตการอ่าน

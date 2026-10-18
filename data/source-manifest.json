@@ -1,0 +1,83 @@
+{
+  "reviewedAt": "2026-10-18",
+  "timezone": "Asia/Bangkok",
+  "sources": [
+    {
+      "id": "S01",
+      "filename": "E2E_Test_Case_DCS_NCB.xlsx",
+      "bytes": 2281062,
+      "sha256": "5bf0c4e21d0293e83ad6500f2cbfd7e535d556a36d7968b2520665a2fe5270e0",
+      "scope": "Case และ LG: กรณีทดสอบ สถานะงาน และหมายเหตุ"
+    },
+    {
+      "id": "S02",
+      "filename": "Fotmat ncb Consumer และ Commercial_NCB.pptx",
+      "bytes": 7649331,
+      "sha256": "ac8a06e250fb049872553b0dea0ce23611f1e7bdec6d6cbc11c76b56259d6e5d",
+      "scope": "15 สไลด์: รูปแบบ Consumer/Commercial และตาราง required fields รวมตารางที่เป็นภาพ"
+    },
+    {
+      "id": "S03",
+      "filename": "NCB Deep Detail.docx",
+      "bytes": 5298195,
+      "sha256": "8472e6ed2b5592bbfc0229ac403a2f234c902b0f806201be98fbd82f7cafe847",
+      "scope": "Mapping ต้นทางและกฎธุรกิจ; 8 ตาราง"
+    },
+    {
+      "id": "S04",
+      "filename": "NCB Deep Detail.pdf",
+      "bytes": 6257831,
+      "sha256": "0e522b04e53ba0f48be9a6c328a5a1e08b60a942f579199d7c54da57f7a55567",
+      "scope": "32 หน้า: เนื้อหาหัวข้อสอดคล้องกับ S03 ไม่ได้ถือว่าเหมือนกันทุกไบต์"
+    },
+    {
+      "id": "S05",
+      "filename": "NCB Field Data [EOM].docx",
+      "bytes": 5299463,
+      "sha256": "b62bef81ec57e5d34b503a789d7492db8fdc1be3a791f69cf450f5e8dfc45adb",
+      "scope": "Mapping EOM และกฎธุรกิจ; 8 ตาราง"
+    },
+    {
+      "id": "S06",
+      "filename": "NCB Field Data [EOM].pdf",
+      "bytes": 6232323,
+      "sha256": "3122254418931cb08d4602295392f39128af8734518a86f2fdbfcfd91127cbd4",
+      "scope": "32 หน้า: เอกสารประกอบชุด EOM"
+    },
+    {
+      "id": "S07",
+      "filename": "NCB (DATAWAREHOUSE).docx",
+      "bytes": 295227,
+      "sha256": "a43bb416e0c862f8b8bca4a89ad9e55adea9bc960b3c7ae2b2de7e97afe4c0b8",
+      "scope": "Mapping DWH และ Master; 6 ตาราง"
+    },
+    {
+      "id": "S08",
+      "filename": "NCB (DATAWAREHOUSE).pdf",
+      "bytes": 378497,
+      "sha256": "e749c93c735497fb0fccb7403cd0d69c518f243304a334fc28cbe3b6a929e4b3",
+      "scope": "14 หน้า: เอกสารประกอบชุด DWH"
+    },
+    {
+      "id": "S09",
+      "filename": "NCB Note.docx",
+      "bytes": 393872,
+      "sha256": "40b27f76274077db90aacc1a1ffb4ebb66b775ed177490c342fc60067fcc51c8",
+      "scope": "แนวคิดฐานข้อมูลและเปลี่ยนปี"
+    },
+    {
+      "id": "S10",
+      "filename": "Requied ฟิลด์ และความหมาย .xlsx",
+      "bytes": 21835,
+      "sha256": "593a9dea22d63f41fc76e663c72c74743960d0131a61abc6ec507b0323d0f39d",
+      "scope": "Con+Com รวมฟิลด์: ชื่อ report ความหมาย ระบบต้นทาง ฝ่ายงาน และ Confirm"
+    },
+    {
+      "id": "S11",
+      "filename": "สรุปเงื่อนไขนำส่งข้อมูล NCB_DCS#2.pdf",
+      "bytes": 598523,
+      "sha256": "3f451c38e860cf184386b2e90e3144dd54f36acb111ca47368ff09aecb2cf7e9",
+      "scope": "9 หน้า: TDR, DFD, DPD, ยอดค้าง สถานะบัญชี และ catalog"
+    }
+  ]
+}

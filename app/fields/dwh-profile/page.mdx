@@ -1,0 +1,43 @@
+# DWH · Commercial Profile
+
+ถอดจาก S07: `NCB (DATAWAREHOUSE).docx` ตารางที่ 3 โดยรักษาชื่อสะกดตามเอกสาร ช่องไม่ระบุไม่ใช่การกำหนดให้ส่งค่าว่าง
+
+**การใช้ตาราง:** ใช้ร่วมกับ [กฎธุรกิจ](/business-rules) และ [ประเด็นที่ต้องยืนยัน](/open-questions) ค่าตั้งต้นในตารางไม่ยกเลิกเงื่อนไขเฉพาะกรณี
+
+| Field Name | ความหมาย | ชื่อบนรายงาน | ฟิลด์ต้นทาง / ค่าตั้งต้น | ตารางต้นทาง / ข้อกำหนด |
+| --- | --- | --- | --- | --- |
+| Customer Code | เลข CIF | customer_code | customercode | TEMPDWHCBS |
+| Effective Date | วันที่ในรูปแบบปี พ.ศ. | eff_date | NCB เป็นตัวจัดการ format เอง | NCB เป็นตัวจัดการ format เอง |
+| ID Number / Registration ID | เลขที่นิติบุคคล (นำส่งเป็น 13 หลักหากขึ้นทะเบียนกับ กรมพัฒฯ หากเป็นหน่วยงานรัฐ ให้ใช้เลขของกรมบัญชีกลาง) | card_id | idnumber | idnumber |
+| Customer Type | ประเภทลูกค้า | customer_type | รายงานเป็น 1 | รายงานเป็น 1 |
+| Registration Type | ประเภทนิติบุคคล<br />ระบุประเภทนิติบุคคล ได้แก่  บริษัทจำกัด บริษัทมหาชน ห้างหุ้นส่วนจำกัด เป็นต้น | registration_type | RegistrationType | RegistrationType |
+| English Prefix | คำนำหน้าภาษาอังกฤษ | english_prefix | titlename | titlename |
+| Thai Prefix | คำนำหน้าภาษาไทย | thai_prefix | titlecode | titlecode |
+| Company English Name | ชื่อนิติบุคคลภาษาอังกฤษ | company_english_name | ค่าว่าง | ค่าว่าง |
+| Company Thai Name | ชื่อนิติบุคคลภาษาไทย | company_thai_name | companythainame | companythainame |
+| Old Company Name | ชื้อนิติบุคคลเก่า | old_company_name | ค่าว่าง | ค่าว่าง |
+| English First Name | ชื่อเป็นภาษาอังกฤษ | english_first_name | ค่าว่าง | ค่าว่าง |
+| Thai First Name | ชื่อเป็นภาษาไทย | thai_first_name | ค่าว่าง | ค่าว่าง |
+| English Middle Name | ชื่อกลางภาษาอังกฤษ | english_middle_name | ค่าว่าง | ค่าว่าง |
+| Thai Middle Name | ชื่อกลางภาษาไทย | thai_middle_name | ค่าว่าง | ค่าว่าง |
+| English Last Name | นามสกุลภาษาอังกฤษ | english_last_name | ค่าว่าง | ค่าว่าง |
+| Thai Last Name | นามสกุลภาษาไทย | thai_last_name | ค่าว่าง | ค่าว่าง |
+| Registraion Date | วันที่จดทะเบียนนิติบุคคล | registration_date | regisstrationdate | regisstrationdate |
+| Nationality | สัญชาติ | nationality | ค่าว่าง | ค่าว่าง |
+| Purpose Of Business1 | จุดประสงค์ของธุรกิจ | purpose_of_business1 | ค่าว่าง | ค่าว่าง |
+| Purpose Of Business2 | จุดประสงค์ของธุรกิจ | purpose_of_business2 | ค่าว่าง | ค่าว่าง |
+| Purpose Of Business3 | จุดประสงค์ของธุรกิจ | purpose_of_business3 | ค่าว่าง | ค่าว่าง |
+| ID Type | ไม่ระบุ | id_type | 1150001 | 1150001 |
+| Address Type | ไม่ระบุ | address_type | 1010003 | 1010003 |
+| Address 1 | ที่อยู่ | address1 | address1 | address1 |
+| Address 2 | ที่อยู่ | address2 | ค่าว่าง | ค่าว่าง |
+| Sub District | ตำบล (เป็นหนังสือ) | sub_district | sub_district | sub_district |
+| District | อำเภอ (เป็นหนังสือ) | district | district | district |
+| Province Code | จังหวัด (เป็น code) | province_code | provincecode | provincecode |
+| Postal Code | รหัสไปรษณีย์ | pstal_code | postalcode | postalcode |
+| Telephone | โทรศัพท์ | telephone | DebtorContactValue | DebtorContactValue |
+| Telephone Type | ประเภทโทรศัพท์ | telephone_type | DebtorContactTypeId | DebtorContactTypeId |
+| Status LG | สถานะ LG | status_lg | statuslg | statuslg |
+| Status Grade | เกรดลูกหนี้ | status_grade | Grade | Grade |
+
+รวม 33 แถวตามตารางต้นฉบับ ดู [ทะเบียนแหล่งอ้างอิง](/sources) สำหรับไฟล์และขอบเขตการอ่าน
