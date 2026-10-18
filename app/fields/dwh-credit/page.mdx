@@ -33,8 +33,8 @@
 | Number Of Installments | จำนวนงวด (จำนวนงวดที่ต้องผ่อนชำระ) | Installment_number_of_payments | 0 | 0 |
 | Payment Amount | ค่างวดหรือยอดผ่อนชำระ (ยอดชำระในแต่ละงวด) | installment_amount | 0 | 0 |
 | Date Of Last Payment / Last Payment Date | วันที่ชำระหนี้ครั้งล่าสุด | date_of_last_payment | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
-| Date Of Last Restructuring / Restructure Date | วันที่ปรับปรุงโครงสร้างหนี้<br />หมายเหตุ: ใช้ TDR Date ล่าสุด โดยไม่แยก active/inactive | date_of_restructuring | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
-| TDR Code | TDR Code | code_of_restructuring | 00 | 00 |
+| Date Of Last Restructuring / Restructure Date | วันที่ปรับปรุงโครงสร้างหนี้<br />หมายเหตุ: ใช้ TDR Date (วันที่ปรับโครงสร้างหนี้) ล่าสุด โดยไม่แยก active/inactive | date_of_restructuring | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
+| TDR Code | TDR Code (รหัสการปรับโครงสร้างหนี้) | code_of_restructuring | 00 | 00 |
 | Close Payment Amount | เงินต้นที่จ่ายแล้ว | close_payment_amount | ค่าว่าง | ค่าว่าง |
 | Write-off Amount<br/>(ต้นฉบับ: `Write Of Amount`) | ไม่ระบุ | write_of_amount | ค่าว่าง | ค่าว่าง |
 | Account Status | สถานะบัญชี | account_status | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
@@ -73,7 +73,7 @@
 | Sub Project | โครงการย่อย (ตัวอักษร) | sub_project | ClaimSubTypeId | DataLG<br/>(ตารางข้อมูลหนังสือค้ำประกัน) |
 | Open Date Original | Open date เดิม | open_date_original | dateaccountopend | TEMPDWHCBS |
 | Maturity Date | วันที่ครบกำหนดสัญญา | maturity_date | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
-| Contract Number | เลขแผน TDR active ล่าสุด | contract_number | ค่าว่าง | ค่าว่าง |
-| Last Contract Number | เลขแผน TDR active/inactive มาแสดงล่าสุด | last_contract_number | ค่าว่าง | ค่าว่าง |
+| Contract Number | เลขแผน TDR (การปรับโครงสร้างหนี้) active ล่าสุด | contract_number | ค่าว่าง | ค่าว่าง |
+| Last Contract Number | เลขแผน TDR (การปรับโครงสร้างหนี้) active/inactive มาแสดงล่าสุด | last_contract_number | ค่าว่าง | ค่าว่าง |
 
 รวม 63 แถวตามตารางต้นฉบับ ดู [ทะเบียนแหล่งอ้างอิง](/sources) สำหรับไฟล์และขอบเขตการอ่าน

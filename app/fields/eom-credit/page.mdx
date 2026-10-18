@@ -33,8 +33,8 @@
 | Number Of Installments | จำนวนงวด (จำนวนงวดที่ต้องผ่อนชำระ) | Installment_number_of_payments | TDRInstallments | DataEndOfMonth |
 | Payment Amount | ค่างวดหรือยอดผ่อนชำระ (ยอดชำระในแต่ละงวด) | installment_amount | InstallmentsAmount | DataEndOfMonth |
 | Date Of Last Payment / Last Payment Date | วันที่ชำระหนี้ครั้งล่าสุด | date_of_last_payment | CurrentPaymentDate | DataEndOfMonth |
-| Date Of Last Restructuring / Restructure Date | วันที่ปรับปรุงโครงสร้างหนี้<br />หมายเหตุ: ใช้ TDR Date ล่าสุด โดยไม่แยก active/inactive | date_of_restructuring | TDRDate | DataEndOfMonth |
-| TDR Code | TDR Code | code_of_restructuring | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
+| Date Of Last Restructuring / Restructure Date | วันที่ปรับปรุงโครงสร้างหนี้<br />หมายเหตุ: ใช้ TDR Date (วันที่ปรับโครงสร้างหนี้) ล่าสุด โดยไม่แยก active/inactive | date_of_restructuring | TDRDate | DataEndOfMonth |
+| TDR Code | TDR Code (รหัสการปรับโครงสร้างหนี้) | code_of_restructuring | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Close Payment Amount | เงินต้นที่จ่ายแล้ว | close_payment_amount | ค่าว่าง | ค่าว่าง |
 | Write-off Amount<br/>(ต้นฉบับ: `Write Of Amount`) | ไม่ระบุ | write_of_amount | ค่าว่าง | ค่าว่าง |
 | Account Status | สถานะบัญชี | account_status | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
@@ -73,7 +73,7 @@
 | Sub Project | โครงการย่อย (ตัวอักษร) | sub_project | ClaimSubTypeName | DataEndOfMonth |
 | Open Date Original | Open date เดิม | open_date_original | LGDate<br/>(วันที่หนังสือค้ำประกันตามฟิลด์ต้นทาง) | DataEndOfMonth |
 | Maturity Date | วันที่ครบกำหนดสัญญา | maturity_date | MaturityDate | DataEndOfMonth |
-| Contract Number | เลขแผน TDR active ล่าสุด | contract_number | ContractNo | DataEndOfMonth |
-| Last Contract Number | เลขแผน TDR active/inactive มาแสดงล่าสุด | last_contract_number | ContractNo | DataEndOfMonth |
+| Contract Number | เลขแผน TDR (การปรับโครงสร้างหนี้) active ล่าสุด | contract_number | ContractNo | DataEndOfMonth |
+| Last Contract Number | เลขแผน TDR (การปรับโครงสร้างหนี้) active/inactive มาแสดงล่าสุด | last_contract_number | ContractNo | DataEndOfMonth |
 
 รวม 63 แถวตามตารางต้นฉบับ ดู [ทะเบียนแหล่งอ้างอิง](/sources) สำหรับไฟล์และขอบเขตการอ่าน

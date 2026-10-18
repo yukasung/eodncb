@@ -19,7 +19,7 @@ export default async function RootLayout({ children }) {
           navbar={<Navbar logoLink="/overview" logo={<span className="x:text-sm x:font-semibold x:tracking-normal x:sm:text-base">NCB (เครดิตบูโร) Docs</span>} />}
           pageMap={pageMap}
           docsRepositoryBase="https://github.com/yukasung/eodncb/tree/main"
-          search={<Search placeholder="ค้นหาเอกสาร DPD, TDR, ฟิลด์…" emptyResult="ไม่พบเอกสารที่ตรงกับคำค้น" loading="กำลังค้นหา…" errorText="โหลดดัชนีค้นหาไม่สำเร็จ โปรดลองใหม่" />}
+          search={<Search placeholder="ค้นหาเอกสาร DPD, TDR (การปรับโครงสร้างหนี้), ฟิลด์…" emptyResult="ไม่พบเอกสารที่ตรงกับคำค้น" loading="กำลังค้นหา…" errorText="โหลดดัชนีค้นหาไม่สำเร็จ โปรดลองใหม่" />}
           footer={<Footer>เอกสาร NCB (เครดิตบูโร) · สรุปจากเอกสารในโฟลเดอร์โครงการ · 18 ตุลาคม 2569</Footer>}
           editLink={null}
           feedback={{ content: <span hidden /> }}

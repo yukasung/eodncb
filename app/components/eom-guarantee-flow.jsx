@@ -10,7 +10,7 @@ const cases = {
       ...common,
       { lines: ['DFD Date == NULL?'] },
       { lines: ['DPD < 30?', 'DPD Code 000 / 1160001'] },
-      { lines: ['TDR Date == NULL?', 'TDR Code 00'] },
+      { lines: ['TDR Date (วันที่ปรับโครงสร้างหนี้)', '== NULL?', 'TDR Code 00', '(รหัสการปรับโครงสร้างหนี้)'] },
       { lines: ['Last Payment Date == NULL?'] },
       { lines: ['Account Close Date == NULL?'] }
     ],
@@ -23,7 +23,7 @@ const cases = {
       { lines: ['StatusLG == 500?', 'สถานะ LG (หนังสือค้ำประกัน)'] },
       { lines: ['DFD Date == NULL?'] },
       { lines: ['DPD == 0?', 'DPD Code 000 / 1160001'] },
-      { lines: ['TDR Date == NULL?', 'TDR Code 00'] },
+      { lines: ['TDR Date (วันที่ปรับโครงสร้างหนี้)', '== NULL?', 'TDR Code 00', '(รหัสการปรับโครงสร้างหนี้)'] },
       { lines: ['Last Payment Date == NULL?'] },
       { lines: ['Account Close Date != NULL?'] }
     ],
@@ -34,7 +34,7 @@ const cases = {
     steps: [
       ...common,
       { lines: ['DFD Date == NULL?'] },
-      { lines: ['TDR Date == NULL?', 'TDR Code 00'] },
+      { lines: ['TDR Date (วันที่ปรับโครงสร้างหนี้)', '== NULL?', 'TDR Code 00', '(รหัสการปรับโครงสร้างหนี้)'] },
       { kind: 'prepare', lines: ['Last Payment Date', 'มีค่า: ใช้วันที่จริง', 'ไม่มีค่า: ใช้ 1900-01-01', 'เตรียมค่าแล้วตรวจต่อ'] },
       { lines: ['Bankruptcy Date != NULL?', 'วันปลดล้มละลายตามต้นฉบับ'] },
       { lines: ['งวดรายงานเกิน 2 ปี', 'จาก Bankruptcy Date?', 'วิธีนับตาม Q13'] },

@@ -49,7 +49,7 @@
 | Number Of Installments | จำนวนงวด (จำนวนงวดที่ต้องผ่อนชำระ) | installment_number_of_payments | 0 | 0 |
 | Account Status | สถานะบัญชี | account_status | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Date Of Last Restructuring / Restructure Date | วันที่ปรับปรุงโครงสร้างหนี้ | date_of_restructuring | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
-| TDR Code | TDR Code | code_of_restructuring | 00 | 00 |
+| TDR Code | TDR Code (รหัสการปรับโครงสร้างหนี้) | code_of_restructuring | 00 | 00 |
 | Number of Co-borrowers<br/>(ต้นฉบับ: `Number of co-borrower`) | จำนวนผู้กู้ร่วม (ผู้กู้ + ผู้กู้ร่วม) | number_of_borrower | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม |
 | Minimum Payment | ยอดขั้นต่ำที่ต้องชำระ (%)  (บสย. ไม่ได้นำส่งเป็นยอดขั้นต่ำที่ชำระเหมือนบัตรเครดิต) | minimum_payment | ค่าว่าง | ค่าว่าง |
 | Status LG (หนังสือค้ำประกัน) | สถานะ LG (หนังสือค้ำประกัน) | status_lg<br/>(สถานะหนังสือค้ำประกัน) | statuslg<br/>(สถานะหนังสือค้ำประกัน) | statuslg<br/>(สถานะหนังสือค้ำประกัน) |
@@ -74,7 +74,7 @@
 | Sub Project | โครงการย่อย (ตัวอักษร) | sub_project | ClaimSubTypeId | ClaimSubTypeId |
 | Open Date Original | Open date เดิม | open_date_original | dateaccountopend | dateaccountopend |
 | Maturity Date | วันที่ครบกำหนดสัญญา | maturity_date | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
-| Contract Number | เลขแผน TDR active ล่าสุด | contract_number | ค่าว่าง | ค่าว่าง |
-| Last Contract Number | เลขแผน TDR active/inactive มาแสดงล่าสุด | last_contract_number | ค่าว่าง | ค่าว่าง |
+| Contract Number | เลขแผน TDR (การปรับโครงสร้างหนี้) active ล่าสุด | contract_number | ค่าว่าง | ค่าว่าง |
+| Last Contract Number | เลขแผน TDR (การปรับโครงสร้างหนี้) active/inactive มาแสดงล่าสุด | last_contract_number | ค่าว่าง | ค่าว่าง |
 
 รวม 64 แถวตามตารางต้นฉบับ ดู [ทะเบียนแหล่งอ้างอิง](/sources) สำหรับไฟล์และขอบเขตการอ่าน

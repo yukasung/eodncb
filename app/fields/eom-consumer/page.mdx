@@ -48,8 +48,8 @@
 | Installment Amount | ค่างวดหรือยอดผ่อนชำระ (ยอดชำระในแต่ละงวด) | installment_amount | InstallmentsAmount | DataEndOfMonth |
 | Number Of Installments | จำนวนงวด (จำนวนงวดที่ต้องผ่อนชำระ) | installment_number_of_payments | TDRInstallments | DataEndOfMonth |
 | Account Status | สถานะบัญชี | account_status | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
-| Date Of Last Restructuring / Restructure Date | วันที่ปรับปรุงโครงสร้างหนี้<br />หมายเหตุ: ใช้ TDR Date ล่าสุด โดยไม่แยก active/inactive | date_of_restructuring | TDRDateLastest | DataEndOfMonth |
-| TDR Code | TDR Code | code_of_restructuring | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
+| Date Of Last Restructuring / Restructure Date | วันที่ปรับปรุงโครงสร้างหนี้<br />หมายเหตุ: ใช้ TDR Date (วันที่ปรับโครงสร้างหนี้) ล่าสุด โดยไม่แยก active/inactive | date_of_restructuring | TDRDateLastest | DataEndOfMonth |
+| TDR Code | TDR Code (รหัสการปรับโครงสร้างหนี้) | code_of_restructuring | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Number of Co-borrowers<br/>(ต้นฉบับ: `Number of co-borrower`) | จำนวนผู้กู้ร่วม (ผู้กู้ + ผู้กู้ร่วม) | number_of_borrower | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม |
 | Minimum Payment | ยอดขั้นต่ำที่ต้องชำระ (%)  (บสย. ไม่ได้นำส่งเป็นยอดขั้นต่ำที่ชำระเหมือนบัตรเครดิต) | minimum_payment | ค่าว่าง | ค่าว่าง |
 | Status LG (หนังสือค้ำประกัน) | สถานะ LG (หนังสือค้ำประกัน) | status_lg<br/>(สถานะหนังสือค้ำประกัน) | StatusLGId<br/>(รหัสสถานะหนังสือค้ำประกัน) | StatusLGId<br/>(รหัสสถานะหนังสือค้ำประกัน) |
@@ -74,7 +74,7 @@
 | Sub Project | โครงการย่อย (ตัวอักษร) | sub_project | ClaimSubTypeName | ClaimSubTypeName |
 | Open Date Original | Open date เดิม | open_date_original | LGDate<br/>(วันที่หนังสือค้ำประกันตามฟิลด์ต้นทาง) | LGDate<br/>(วันที่หนังสือค้ำประกันตามฟิลด์ต้นทาง) |
 | Maturity Date | วันที่ครบกำหนดสัญญา | maturity_date | MaturityDate | MaturityDate |
-| Contract Number | เลขแผน TDR active ล่าสุด | contract_number | ContractNo | ContractNo |
-| Last Contract Number | เลขแผน TDR active/inactive มาแสดงล่าสุด | last_contract_number | ContractNo | ContractNo |
+| Contract Number | เลขแผน TDR (การปรับโครงสร้างหนี้) active ล่าสุด | contract_number | ContractNo | ContractNo |
+| Last Contract Number | เลขแผน TDR (การปรับโครงสร้างหนี้) active/inactive มาแสดงล่าสุด | last_contract_number | ContractNo | ContractNo |
 
 รวม 64 แถวตามตารางต้นฉบับ ดู [ทะเบียนแหล่งอ้างอิง](/sources) สำหรับไฟล์และขอบเขตการอ่าน
