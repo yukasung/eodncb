@@ -1,6 +1,6 @@
 # กระบวนการและแหล่งข้อมูล
 
-เอกสารมี Mapping สามแนวทาง การเลือกแนวทางต้องอิง pipeline ที่ใช้งานจริง ไม่ควรนำค่าตั้งต้นจาก DWH มาใช้แทนค่าหนี้จาก EOM โดยอัตโนมัติ
+เอกสารมี Mapping สองแนวทาง การเลือกแนวทางต้องอิง pipeline ที่ใช้งานจริง ไม่ควรนำค่าตั้งต้นจาก DWH มาใช้แทนค่าหนี้จาก EOM โดยอัตโนมัติ
 
 หากเพิ่งเริ่มอ่าน: **EOD คือข้อมูลสิ้นวัน, EOM คือข้อมูลสิ้นเดือน, บสย. คือหน่วยงานค้ำประกันสินเชื่อที่จัดทำข้อมูล และ NCB คือเครดิตบูโรผู้รับข้อมูล** อ่าน [ความหมายและตัวอย่าง](/glossary) ก่อนดูแผนภาพด้านล่างได้
 
@@ -8,7 +8,6 @@
 
 | แนวทาง | แหล่งข้อมูลหลัก | ลักษณะ |
 | --- | --- | --- |
-| Deep Detail · S03 | DataEndOfDay, DataDebtor, DataDebtorAddress, DataLG และตาราง TDR | กระจายข้อมูลตามตารางต้นทางและข้อมูลรายวัน |
 | EOM · S05 | DataEndOfMonth และ Master บางส่วน | รวมข้อมูลส่วนใหญ่ไว้ใน snapshot สิ้นเดือน |
 | DWH · S07 | TEMPDWHCBS, DataLG, LTDataCaseMain และ Master | มีค่าตั้งต้นหลายรายการ เช่น ยอดหนี้ DPD และวันที่บางฟิลด์ |
 
@@ -43,27 +42,24 @@ flowchart TD
 flowchart TD
     A[ตรวจ pipeline ที่ใช้งานจริง] --> B{แหล่งข้อมูลของรายงาน?}
     B -->|snapshot สิ้นเดือน| C[S05 · EOM Mapping]
-    B -->|ตารางรายวันและต้นทาง| D[S03 · Deep Detail Mapping]
     B -->|TEMPDWHCBS และข้อมูลประกอบ| E[S07 · DWH Mapping]
     B -->|ยังไม่ชัดเจน| F[ยืนยันแหล่งข้อมูล · Q01]
     F -.-> A
     C --> G[เลือก Consumer / Commercial Profile / Report]
-    D --> G
     E --> G
     G --> H[ตรวจฟิลด์ ค่าตั้งต้น และกฎเฉพาะกรณี]
 ```
 
 ## ตัวอย่างความต่างที่มีผลต่อการพัฒนา
 
-| ฟิลด์ | Deep Detail | EOM | DWH |
-| --- | --- | --- | --- |
-| customer_code | CIFNo จาก DataEndOfDay | CIFNo จาก DataEndOfMonth | customercode จาก TEMPDWHCBS |
-| default_date | DFD จาก DataEndOfDay | DFDDate จาก DataEndOfMonth | default 1900-01-01 |
-| amount_owned | DebtBalance จาก DataEndOfDay | DebtBalance จาก DataEndOfMonth | 0 |
-| claim_pay_date | ClaimDate จาก DataLG | ClaimPayDate จาก DataEndOfMonth | default 1900-01-01 |
-| date_of_restructuring | TDRDate จากตารางที่ต้นฉบับเรียก TDRDateCompromiseContract | TDRDateLastest จาก DataEndOfMonth | default 1900-01-01 |
+| --- | --- | --- |
+| customer_code | CIFNo จาก DataEndOfMonth | customercode จาก TEMPDWHCBS |
+| default_date | DFDDate จาก DataEndOfMonth | default 1900-01-01 |
+| amount_owned | DebtBalance จาก DataEndOfMonth | 0 |
+| claim_pay_date | ClaimPayDate จาก DataEndOfMonth | default 1900-01-01 |
+| date_of_restructuring | TDRDateLastest จาก DataEndOfMonth | default 1900-01-01 |
 
-ดูชื่อสะกดและแหล่งข้อมูลครบทุกฟิลด์ใน [พจนานุกรมฟิลด์](/fields) ชื่อ `DateEndOfDay`, `DateEndOfMonth` และ `TDRDateCompromiseContract` บางจุดในต้นฉบับอาจเป็นชื่อพิมพ์คลาดเคลื่อน ต้องตรวจ schema จริง
+ดูชื่อสะกดและแหล่งข้อมูลครบทุกฟิลด์ใน [พจนานุกรมฟิลด์](/fields) ชื่อฟิลด์และตารางที่ไม่สอดคล้องกันต้องตรวจ schema จริง
 
 ## ขั้นตอนควบคุมที่เสนอให้มี
 
@@ -76,4 +72,4 @@ flowchart TD
 
 รายการนี้เป็นข้อเสนอแนะด้านการออกแบบ ยังไม่ยืนยันว่าระบบมีขั้นตอนดังกล่าวแล้ว
 
-**แหล่งอ้างอิง:** S03, S05 และ S07 ดู [ทะเบียนเอกสาร](/sources)
+**แหล่งอ้างอิง:** S05 และ S07 ดู [ทะเบียนเอกสาร](/sources)

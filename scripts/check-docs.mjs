@@ -26,7 +26,7 @@ for (const page of pages) {
   }
 }
 const manifest = JSON.parse(await readFile('data/source-manifest.json', 'utf8'))
-assert.equal(manifest.sources.length, 11)
-assert.equal(new Set(manifest.sources.map(s => s.id)).size, 11)
+assert.equal(manifest.sources.length, 9)
+assert.equal(new Set(manifest.sources.map(s => s.id)).size, 9)
 assert(manifest.sources.every(s => /^[a-f0-9]{64}$/.test(s.sha256)))
-console.log(`Checked ${pages.length} documentation pages, ${links} internal links, all table rows and 11 source records.`)
+console.log(`Checked ${pages.length} documentation pages, ${links} internal links, all table rows and ${manifest.sources.length} source records.`)

@@ -17,20 +17,6 @@
       "scope": "15 สไลด์: รูปแบบ Consumer/Commercial และตาราง required fields รวมตารางที่เป็นภาพ"
     },
     {
-      "id": "S03",
-      "filename": "NCB Deep Detail.docx",
-      "bytes": 5298195,
-      "sha256": "8472e6ed2b5592bbfc0229ac403a2f234c902b0f806201be98fbd82f7cafe847",
-      "scope": "Mapping ต้นทางและกฎธุรกิจ; 8 ตาราง"
-    },
-    {
-      "id": "S04",
-      "filename": "NCB Deep Detail.pdf",
-      "bytes": 6257831,
-      "sha256": "0e522b04e53ba0f48be9a6c328a5a1e08b60a942f579199d7c54da57f7a55567",
-      "scope": "32 หน้า: เนื้อหาหัวข้อสอดคล้องกับ S03 ไม่ได้ถือว่าเหมือนกันทุกไบต์"
-    },
-    {
       "id": "S05",
       "filename": "NCB Field Data [EOM].docx",
       "bytes": 5299463,
