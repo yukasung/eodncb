@@ -4,14 +4,14 @@ footer { font-size: .75rem; line-height: 1rem; }
 code.text-\[\.9em\] { font-size: 14px; }
 article code { overflow-wrap: anywhere; }
 
-/* All diagram types stay unframed and can scroll on narrow screens. */
+/* Fit every diagram to the content width without a frame or scrollbar. */
 article main div:has(> svg[aria-roledescription]) {
-  overflow-x: auto;
+  min-width: 0;
   margin-top: 1.5rem;
 }
 article main svg[aria-roledescription] {
   display: block;
-  max-width: none;
+  max-width: 100%;
   height: auto;
   margin-inline: auto;
 }
