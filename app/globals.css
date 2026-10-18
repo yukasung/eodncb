@@ -8,6 +8,8 @@ article h1 { letter-spacing: -.025em; }
 article table { font-size: .9rem; line-height: 1.65; }
 article th { white-space: nowrap; }
 article code { overflow-wrap: anywhere; }
+article div:has(> svg.flowchart) { overflow-x: auto; padding: 1rem; margin: 1.25rem 0; border: 1px solid #94a3b840; border-radius: .6rem; }
+article svg.flowchart { max-width: none; margin-inline: auto; }
 .hero { padding: 1.6rem 0 1rem; border-bottom: 1px solid #0f766e40; margin-bottom: 1.6rem; }
 .eyebrow { color: #0f766e; font-size: .8rem; font-weight: 700; letter-spacing: .12em; }
 .hero p { max-width: 52rem; color: #64748b; font-size: 1.1rem; }

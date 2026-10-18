@@ -19,6 +19,22 @@ S09 อธิบายแนวคิดแยกฐานข้อมูลร�
 
 นี่เป็นแนวคิดในเอกสาร ไม่ใช่ runbook ที่พร้อมดำเนินการ ต้องระบุ dependency ของ view, stored procedure, permission, synonym และการ query ข้ามปีก่อนใช้งานจริง
 
+```mermaid
+%%{init: {"flowchart": {"useMaxWidth": false}}}%%
+flowchart TD
+    A([เปลี่ยนปีรายงานตามแนวคิด S09]) --> B[backup ข้อมูลด้วย job]
+    B --> C[ฐานรายงาน NCB / EOD / EOM / DWH]
+    B --> D[ฐานประวัติ HIS]
+    C --> E[เปลี่ยน schema เดิมเป็น yearYYYY]
+    E --> F[สร้าง dbo สำหรับปีใหม่]
+    D --> G[เปลี่ยนชื่อเป็น DB_TCGDCS_HIS_YYYY]
+    G --> H[สร้าง DB_TCGDCS_HIS ใหม่]
+    F --> I[ตรวจ dependency และวิธีอ่านประวัติข้ามปี · Q17]
+    H --> I
+```
+
+YYYY ในผังคือปีของข้อมูลเดิมที่เก็บประวัติ ขั้นตอนตรวจ dependency เป็นประเด็นที่ต้องยืนยันก่อนจัดทำ runbook จริง
+
 ## Member Master
 
 S07 ระบุ `NCBMemberMaster` มีข้อมูลดังนี้
@@ -33,6 +49,17 @@ S07 ระบุ `NCBMemberMaster` มีข้อมูลดังนี้
 | IsActive | True/False |
 
 ขั้นตอนในเอกสารคือกรอก Member Code และ Member Name ทาง frontend แล้วกด active เพื่อให้ stored procedure อัปเดตค่า ทั้งนี้ยังไม่ระบุชื่อ procedure การป้องกัน active ซ้ำ หรือวันมีผลของ configuration
+
+```mermaid
+%%{init: {"flowchart": {"useMaxWidth": false}}}%%
+flowchart TD
+    A[เลือกกลุ่ม Consumer หรือ Commercial] --> B[กรอก Member Code และ Member Name]
+    B --> C[กด Active ในหน้า Setting]
+    C --> D[Stored procedure อัปเดตข้อมูลสมาชิก]
+    D --> E[ใช้ค่าที่มีผลสำหรับรายงาน]
+```
+
+ต้องยืนยัน environment, วันมีผล และการป้องกัน active ซ้ำตาม Q16 ก่อนใช้ขั้นตอนนี้เป็นข้อกำหนดหน้าจอ
 
 ## Registration Master
 
