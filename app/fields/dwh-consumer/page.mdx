@@ -2,7 +2,7 @@
 
 บสย. ใช้ข้อมูลชุดนี้เตรียมรายงานบุคคลธรรมดาให้ NCB (เครดิตบูโร) โดยอ้างอิงข้อมูล DWH ตามแหล่งที่ระบุใน S07 อ่านความหมายธุรกิจและ [วิธีเลือกชุด Mapping](/fields) ก่อนตรวจคอลัมน์ทางเทคนิคด้านล่าง ลำดับแถวฟิลด์คงตามต้นฉบับสำหรับใช้ตรวจเทียบ
 
-ถอดจาก S07: `NCB (DATAWAREHOUSE).docx` ตารางที่ 1 โดยรักษาชื่อสะกดตามเอกสาร ช่องไม่ระบุไม่ใช่การกำหนดให้ส่งค่าว่าง
+ถอดจาก S07: `NCB (DATAWAREHOUSE).docx` ตารางที่ 1 โดยคงชื่อฟิลด์ทางเทคนิคและค่าตั้งต้นตามเอกสาร ส่วนคำอธิบายและชื่อเรียกภาษาอังกฤษปรับการสะกดให้ถูกต้อง พร้อมกำกับคำต้นฉบับเมื่อแก้ชื่อเรียก ช่องที่ไม่ระบุไม่ใช่การกำหนดให้ส่งค่าว่าง
 
 คำในวงเล็บใต้ชื่อฟิลด์หรือตารางเป็นคำอธิบายเพิ่มเติม ไม่ใช่ส่วนหนึ่งของชื่อทางเทคนิคในต้นฉบับ
 
@@ -14,64 +14,64 @@
 | --- | --- | --- | --- | --- |
 | Period | เดือนและปีรายงาน NCB (เครดิตบูโร) | period | `NCB เป็นคนเติม field นี้เอง เช่น 2026-05`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB เป็นคนเติม field นี้เอง เช่น 2026-05`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Customer Code | เลข CIF | customer_code | customercode | TEMPDWHCBS |
-| ID Number | เลขที่รหัสบัตรประชาชน | card_id | idnumber | TEMPDWHCBS |
+| ID Number | เลขประจำตัวประชาชน | card_id | idnumber | TEMPDWHCBS |
 | Effective Date | วันที่ในรูปแบบปี พ.ศ. | eff_date | `NCB เป็นตัวจัดการ format เอง`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB เป็นตัวจัดการ format เอง`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
-| Title/Prefix | คำนำหน้า (ตัวหนังสือ) | thai_prefix | titlename | TEMPDWHCBS |
+| Title/Prefix | คำนำหน้า (ตัวอักษร) | thai_prefix | titlename | TEMPDWHCBS |
 | First Name | ชื่อ | first_name | firstname | TEMPDWHCBS |
 | Family Name | นามสกุล | family_name1 | familyname | TEMPDWHCBS |
 | Date Of Birth | วันเดือนปีเกิด | date_of_birth | dateofbirth | TEMPDWHCBS |
 | Customer Type | ประเภทลูกค้า | customer_type | รายงานเป็น 1 | รายงานเป็น 1 |
 | ID Type | ประเภทบัตร | id_type | ต้อง mapping ในตาราง Type ID | ต้อง mapping ในตาราง Type ID |
 | Address | ที่อยู่ | address1 | address1 | TEMPDWHCBS |
-| Sub District | ตำบล (เป็นหนังสือ) | sub_district | sub_district | TEMPDWHCBS |
-| District | อำเภอ (เป็นหนังสือ) | district | district | TEMPDWHCBS |
-| Province | จังหวัด (เป็นหนังสือ) | province | province | TEMPDWHCBS |
+| Sub District | ตำบล (ตัวอักษร) | sub_district | sub_district | TEMPDWHCBS |
+| District | อำเภอ (ตัวอักษร) | district | district | TEMPDWHCBS |
+| Province | จังหวัด (ตัวอักษร) | province | province | TEMPDWHCBS |
 | country | ประเทศ | Country | เป็น TH | เป็น TH |
 | Postal Code | รหัสไปรษณีย์ | pstal_code | postalcode | TEMPDWHCBS |
-| Member Code | รหัสสมาชิก (นำส่ง code) | member_code | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 |
+| Member Code | รหัสสมาชิก (นำส่งรหัส) | member_code | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 |
 | Member Name | ชื่อย่อสมาชิก (นำส่ง TCG) | member_name | TCG | TCG |
-| Branch Code | รหัสสาขา (ขึ้นอยู่กับ บสย. จะใช้รหัสอะไร NCB (เครดิตบูโร) ไม่บังคับ ปัจจุบันรายงานโค้ดเดียวคือ 0400) | branch_code | 0400 | 0400 |
+| Branch Code | รหัสสาขา (ขึ้นอยู่กับ บสย. จะใช้รหัสอะไร NCB (เครดิตบูโร) ไม่บังคับ ปัจจุบันรายงานรหัสเดียวคือ 0400) | branch_code | 0400 | 0400 |
 | Account Number | เลขที่บัญชี / เลข LG (หนังสือค้ำประกันสินเชื่อ) | account_number | accountnumber | TEMPDWHCBS |
 | Account Type | ประเภทบัญชี (ประเภทสินเชื่อ โดย บสย. ใช้รหัส 38) | account_type | 38 | 38 |
 | Ownership Indicator | ผู้ถือกรรมสิทธิ์ (ลักษณะการกู้ กู้หลัก = 01 กู้ร่วม = 04) | ownership_indicator | data_type | TEMPDWHCBS |
-| Date Account Opend / Open Date | วันที่เปิดบัญชี / วันที่อนุมัติค้ำประกันและตั้งวงเงินค้ำประกัน | date_account_opened | dateaccountopend | TEMPDWHCBS |
+| Date Account Opened / Open Date<br/>(ต้นฉบับ: `Date Account Opend / Open Date`) | วันที่เปิดบัญชี / วันที่อนุมัติค้ำประกันและตั้งวงเงินค้ำประกัน | date_account_opened | dateaccountopend | TEMPDWHCBS |
 | Date Of Last Payment / Last Payment Date | วันที่ชำระหนี้ครั้งล่าสุด | date_of_last_payment | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
-| Date Account Closed / Close Date | วันที่ปิดบัญชี / วันที่ยกเลิกการค้ำประกัน L/G (สถานะ 500) | date_account_closed | dateaccountclosed | TEMPDWHCBS |
+| Date Account Closed / Close Date | วันที่ปิดบัญชี / วันที่ยกเลิกการค้ำประกัน LG (หนังสือค้ำประกัน) (สถานะ 500) | date_account_closed | dateaccountclosed | TEMPDWHCBS |
 | As Of Date | วันที่ส่งข้อมูล (ข้อมูล ณ วันที่)<br />วันเดียวกับ eff_date เป็น พ.ศ. | as_of_date | `NCB เป็นตัวจัดการ format เอง`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB เป็นตัวจัดการ format เอง`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Credit Limit | วงเงิน (วงเงินสินเชื่อ/ภาระค้ำประกันสินเชื่อ) | credit_limit | creditlimited | creditlimited |
-| Amount Owend | วงเงินคงเหลือ (ยอดหนี้คงเหลือ) | amount_owned | 0 | 0 |
+| Amount Owed<br/>(ต้นฉบับ: `Amount Owend`) | วงเงินคงเหลือ (ยอดหนี้คงเหลือ) | amount_owned | 0 | 0 |
 | Amount Past Due | จำนวนค้าง (ยอดหนี้ที่เกินกำหนดชำระ) | amount_past_due | 0 | 0 |
 | Number Of Days Past | NCB (เครดิตบูโร) DPD Code | number_of_days_past | 000 | 000 |
-| Numver Of Days Past (จำนวนวัน) | วันค้าง (จำนวนวันค้างชำระ) | number_of_days_past_2 | 0 | 0 |
+| Number Of Days Past (จำนวนวัน)<br/>(ต้นฉบับ: `Numver Of Days Past (จำนวนวัน)`) | วันค้าง (จำนวนวันค้างชำระ) | number_of_days_past_2 | 0 | 0 |
 | Default Date | วันที่เริ่มมีการผิดนัดชำระ | default_date | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
-| Installment Frequency (Look up code) | ประเภทของค่างวด (ความถี่ในการผ่อนชำระ) | installment_frequency | ลูกค้า (A-E2) = 0, <br />ลูกหนี้(F) = 30 | ลูกค้า (A-E2) = 0, <br />ลูกหนี้(F) = 30 |
-| Installment Amount | ค่างวดหรือยอดผ่อนชำระ/ยอดชำระในแต่ละงวด) | installment_amount | 0 | 0 |
+| Installment Frequency (Lookup Code)<br/>(ต้นฉบับ: `Installment Frequency (Look up code)`) | ประเภทของค่างวด (ความถี่ในการผ่อนชำระ) | installment_frequency | ลูกค้า (A-E2) = 0, <br />ลูกหนี้(F) = 30 | ลูกค้า (A-E2) = 0, <br />ลูกหนี้(F) = 30 |
+| Installment Amount | ค่างวดหรือยอดผ่อนชำระ (ยอดชำระในแต่ละงวด) | installment_amount | 0 | 0 |
 | Number Of Installments | จำนวนงวด (จำนวนงวดที่ต้องผ่อนชำระ) | installment_number_of_payments | 0 | 0 |
 | Account Status | สถานะบัญชี | account_status | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Date Of Last Restructuring / Restructure Date | วันที่ปรับปรุงโครงสร้างหนี้ | date_of_restructuring | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
 | TDR Code | TDR Code | code_of_restructuring | 00 | 00 |
-| Number of co-borrower | จำนวนผู้กู้ร่วม (ผู้กู้ + ผู้กู้ร่วม) | number_of_borrower | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม |
+| Number of Co-borrowers<br/>(ต้นฉบับ: `Number of co-borrower`) | จำนวนผู้กู้ร่วม (ผู้กู้ + ผู้กู้ร่วม) | number_of_borrower | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม |
 | Minimum Payment | ยอดขั้นต่ำที่ต้องชำระ (%)  (บสย. ไม่ได้นำส่งเป็นยอดขั้นต่ำที่ชำระเหมือนบัตรเครดิต) | minimum_payment | ค่าว่าง | ค่าว่าง |
 | Status LG (หนังสือค้ำประกัน) | สถานะ LG (หนังสือค้ำประกัน) | status_lg<br/>(สถานะหนังสือค้ำประกัน) | statuslg<br/>(สถานะหนังสือค้ำประกัน) | statuslg<br/>(สถานะหนังสือค้ำประกัน) |
 | Status Grade | เกรดลูกหนี้ | status_grade | Grade | Grade |
 | Claim Pay Date | วันจ่ายค่าประกันชดเชย | claim_pay_date | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
-| Bkr Filling Date | วันที่ขอยื่นรับชำระหนี้ | bkr_filling_date | ReqRepayDate | ReqRepayDate |
-| Filing Amount | จำนวนเงินขอยื่นรับชำระหนี้ | filing_amount | FilingAmount | FilingAmount |
-| Frozen Asset Date | วันที่พิทักษ์ทรัพย์เด็ดขาด บสย | frozenasset_date | FrozenAssetDate | FrozenAssetDate |
-| Other Frozen Asset Date | วันที่พิทักษ์ทรัพย์เด็ดขาดอื่น (นอก บยส) | other_frozenasset_date | OtherFrozenAssDate | OtherFrozenAssDate |
-| Petition Date | วันที่ศาลอนุญาติสวมสิทธิ์ | petition_date | PetitionDate | PetitionDate |
+| Bkr Filing Date<br/>(ต้นฉบับ: `Bkr Filling Date`) | วันที่ยื่นคำขอรับชำระหนี้ | bkr_filling_date | ReqRepayDate | ReqRepayDate |
+| Filing Amount | จำนวนเงินที่ขอรับชำระหนี้ | filing_amount | FilingAmount | FilingAmount |
+| Frozen Asset Date | วันที่พิทักษ์ทรัพย์เด็ดขาดของ บสย. | frozenasset_date | FrozenAssetDate | FrozenAssetDate |
+| Other Frozen Asset Date | วันที่พิทักษ์ทรัพย์เด็ดขาดอื่น (นอก บสย.) | other_frozenasset_date | OtherFrozenAssDate | OtherFrozenAssDate |
+| Petition Date | วันที่ศาลอนุญาตสวมสิทธิ์ | petition_date | PetitionDate | PetitionDate |
 | Bankruptcy Date | วันที่ปลดล้มละลาย | bankruptcy_date | BankruptcyDate | BankruptcyDate |
-| Bad Debt Date | วันทีตัดหนี้สูญ | bad_dept_date | BadDebtDate | BadDebtDate |
+| Bad Debt Date | วันที่ตัดหนี้สูญ | bad_dept_date | BadDebtDate | BadDebtDate |
 | File Date Temp | วันที่ยื่นฟ้อง | file_date_temp | FilingDate | FilingDate |
 | Black Case No | เลขที่คดีดำ | black_case_no | BlackCaseNo | BlackCaseNo |
-| Withdraw Date | วันที่ บสย.ถอนฟ้อง | withdraw_date | WithdrawDate | WithdrawDate |
+| Withdraw Date | วันที่ บสย. ถอนฟ้อง | withdraw_date | WithdrawDate | WithdrawDate |
 | Warrant Date | วันที่ออกหมาย | warrant_date | WarrantDate | WarrantDate |
 | Jm Trial Date | วันที่พิพากษาชั้นต้น | jm_trial_date | JmTrialDate | JmTrialDate |
 | Red Case No | เลขที่คดีแดง | red_case_no | RedCaseNo | RedCaseNo |
-| Bank | ธนาคาร (ตัวหนังสือ) | bank | BankId | BankId |
-| Branch | สาขา (ตัวหนังสือ) | branch | bankbranchcode | bankbranchcode |
-| Project | โครงการ (ตัวหนังสือ) | project | ClaimTypeId | ClaimTypeId |
-| Sub Project | โครงการย่อย (ตัวหนังสือ) | sub_project | ClaimSubTypeId | ClaimSubTypeId |
+| Bank | ธนาคาร (ตัวอักษร) | bank | BankId | BankId |
+| Branch | สาขา (ตัวอักษร) | branch | bankbranchcode | bankbranchcode |
+| Project | โครงการ (ตัวอักษร) | project | ClaimTypeId | ClaimTypeId |
+| Sub Project | โครงการย่อย (ตัวอักษร) | sub_project | ClaimSubTypeId | ClaimSubTypeId |
 | Open Date Original | Open date เดิม | open_date_original | dateaccountopend | dateaccountopend |
 | Maturity Date | วันที่ครบกำหนดสัญญา | maturity_date | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
 | Contract Number | เลขแผน TDR active ล่าสุด | contract_number | ค่าว่าง | ค่าว่าง |
