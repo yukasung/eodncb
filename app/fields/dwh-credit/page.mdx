@@ -4,15 +4,17 @@
 
 คำในวงเล็บใต้ชื่อฟิลด์หรือตารางเป็นคำอธิบายเพิ่มเติม ไม่ใช่ส่วนหนึ่งของชื่อทางเทคนิคในต้นฉบับ
 
+**หมายเหตุคำจากต้นฉบับ:** NCB (เครดิตบูโร) คือหน่วยงานรวบรวมข้อมูลเครดิต ส่วนข้อความในตาราง เช่น “NCB เป็นคนเติม field” หรือ “NCB mapping code” เป็นถ้อยคำจากเอกสาร ต้องยืนยันว่าผู้กำหนดค่าหมายถึงระบบจัดทำรายงานภายในหรือหน่วยงานเครดิตบูโร ก่อนนำไปพัฒนา
+
 **การใช้ตาราง:** ใช้ร่วมกับ [กฎธุรกิจ](/business-rules) และ [ประเด็นที่ต้องยืนยัน](/open-questions) ค่าตั้งต้นในตารางไม่ยกเลิกเงื่อนไขเฉพาะกรณี
 
 | Field Name | ความหมาย | ชื่อบนรายงาน | ฟิลด์ต้นทาง / ค่าตั้งต้น | ตารางต้นทาง / ข้อกำหนด |
 | --- | --- | --- | --- | --- |
-| Period | เดือนและปีรายงาน NCB | period | NCB เป็นคนเติม field นี้เอง เช่น 2026-05 | NCB เป็นคนเติม field นี้เอง เช่น 2026-05 |
+| Period | เดือนและปีรายงาน NCB (เครดิตบูโร) | period | `NCB เป็นคนเติม field นี้เอง เช่น 2026-05`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB เป็นคนเติม field นี้เอง เช่น 2026-05`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Customer Code | เลข CIF | customer_code | customercode | TEMPDWHCBS |
-| Effective Date | วันที่ในรูปแบบปี พ.ศ. | eff_date | NCB เป็นตัวจัดการ format เอง | NCB เป็นตัวจัดการ format เอง |
+| Effective Date | วันที่ในรูปแบบปี พ.ศ. | eff_date | `NCB เป็นตัวจัดการ format เอง`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB เป็นตัวจัดการ format เอง`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | ID Number / Registration ID | เลขที่นิติบุคคล (นำส่งเป็น 13 หลักหากขึ้นทะเบียนกับ กรมพัฒฯ หากเป็นหน่วยงานรัฐ ให้ใช้เลขของกรมบัญชีกลาง) | card_id | idnumber | TEMPDWHCBS |
-| Branch Code | รหัสสาขา (ขึ้นอยู่กับ บสย. จะใช้รหัสอะไร NCB ไม่บังคับ ปัจจุบันรายงานโค้ดเดียวคือ 0400) | branch_code | 0400 | 0400 |
+| Branch Code | รหัสสาขา (ขึ้นอยู่กับ บสย. จะใช้รหัสอะไร NCB (เครดิตบูโร) ไม่บังคับ ปัจจุบันรายงานโค้ดเดียวคือ 0400) | branch_code | 0400 | 0400 |
 | Account Type | ประเภทบัญชี (ประเภทสินเชื่อ โดย บสย. ใช้รหัส 38) | account_type | 38 | 38 |
 | Account Number | เลขที่บัญชี / เลข LG (หนังสือค้ำประกันสินเชื่อ) | account_number | accountnumber | TEMPDWHCBS |
 | Purpose Loan | วัตถุประสงค์ในการขอสินเชื่อ | purpose_loan1 | 1120001 | 1120001 |
@@ -21,7 +23,7 @@
 | Member Name | ชื่อย่อสมาชิก (นำส่ง TCG) | member_name | TCG | TCG |
 | Date Account Opend / Open Date | วันที่เปิดบัญชี / วันที่อนุมัติค้ำประกันและตั้งวงเงินค้ำประกัน | date_account_opened | dateaccountopend | TEMPDWHCBS |
 | Date Account Closed / Close Date | วันที่ปิดบัญชี / วันที่ยกเลิกการค้ำประกัน L/G (สถานะ 500) | date_account_closed | dateaccountclosed | TEMPDWHCBS |
-| As Of Date | วันที่ส่งข้อมูล (ข้อมูล ณ วันที่)<br />วันเดียวกับ eff_date เป็น พ.ศ. | as_of_date | NCB เป็นตัวจัดการ format เอง | NCB เป็นตัวจัดการ format เอง |
+| As Of Date | วันที่ส่งข้อมูล (ข้อมูล ณ วันที่)<br />วันเดียวกับ eff_date เป็น พ.ศ. | as_of_date | `NCB เป็นตัวจัดการ format เอง`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB เป็นตัวจัดการ format เอง`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Payment Terms | ประเภทของค่างวด (ความถี่ในการผ่อนชำระ) | installment_frequency | ลูกค้า (A-E2) = 0, <br />ลูกหนี้(F) = 30 | ลูกค้า (A-E2) = 0, <br />ลูกหนี้(F) = 30 |
 | Credit Type | ประเภทสินเชื่อ | credit_type | 1060035 | 1060035 |
 | Initial Amount Loan | เงินต้น - คงเหลือ | initial_amount_loan | creditlimited | TEMPDWHCBS |
@@ -33,13 +35,13 @@
 | TDR Code | TDR Code | code_of_restructuring | 00 | 00 |
 | Close Payment Amount | เงินต้น-ที่จ่ายแล้ว | close_payment_amount | ค่าว่าง | ค่าว่าง |
 | Write Of Amount | ไม่ระบุ | write_of_amount | ค่าว่าง | ค่าว่าง |
-| Account Status | สถานะบัญชี | account_status | NCB mapping code ตามเงื่อนไข | NCB mapping code ตามเงื่อนไข |
+| Account Status | สถานะบัญชี | account_status | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Default Date | วันที่เริ่มมีการผิดนัดชำระ | default_date | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
 | Delinquent Status | ไม่ระบุ | delinquent_status | ค่าว่าง | ค่าว่าง |
 | Credit Limit Type | ไม่ระบุ | credit_limit_type | ค่าว่าง | ค่าว่าง |
 | Percent Payment | สัดส่วนความรับผิด | percent_payment | ค่าว่าง | ค่าว่าง |
 | Credit Card Type | ประเภทการ์ดลูกหนี้ | credit_card_type | idtype | TEMPDWHCBS |
-| Number Of Days Past | NCB DPD Code | number_of_days_past | 1160001 | 1160001 |
+| Number Of Days Past | NCB (เครดิตบูโร) DPD Code | number_of_days_past | 1160001 | 1160001 |
 | Number Of Days Past (จำนวนวัน) | วันค้าง (จำนวนวันค้างชำระ) | number_of_days_past_2 | 0 | 0 |
 | Amount Past Due | จำนวนค้าง (ยอดหนี้ที่เกินกำหนดชำระ) | amount_past_due | 0 | 0 |
 | Amount Owend | วงเงินคงเหลือ (ยอดหนี้คงเหลือ) | outstanding_amount | 0 | 0 |

@@ -5,8 +5,8 @@ import 'nextra-theme-docs/style.css'
 import './globals.css'
 
 export const metadata = {
-  title: { default: 'NCB Project Docs', template: '%s · NCB Project Docs' },
-  description: 'สรุปข้อกำหนด การเชื่อมโยงข้อมูล EOD EOM DWH และการนำส่ง NCB ของ บสย.'
+  title: { default: 'NCB (เครดิตบูโร) Docs', template: '%s · NCB (เครดิตบูโร) Docs' },
+  description: 'สรุปข้อกำหนด การเชื่อมโยงข้อมูล EOD EOM DWH และการนำส่ง NCB (เครดิตบูโร) ของ บสย.'
 }
 
 export default async function RootLayout({ children }) {
@@ -16,11 +16,11 @@ export default async function RootLayout({ children }) {
       <Head />
       <body>
         <Layout
-          navbar={<Navbar logoLink="/overview" logo={<span className="x:text-sm x:font-semibold x:tracking-normal x:sm:text-base">NCB Project Docs</span>} />}
+          navbar={<Navbar logoLink="/overview" logo={<span className="x:text-sm x:font-semibold x:tracking-normal x:sm:text-base">NCB (เครดิตบูโร) Docs</span>} />}
           pageMap={pageMap}
           docsRepositoryBase="https://github.com/yukasung/eodncb/tree/main"
           search={<Search placeholder="ค้นหาเอกสาร DPD, TDR, ฟิลด์…" emptyResult="ไม่พบเอกสารที่ตรงกับคำค้น" loading="กำลังค้นหา…" errorText="โหลดดัชนีค้นหาไม่สำเร็จ โปรดลองใหม่" />}
-          footer={<Footer>NCB Project Documentation · สรุปจากเอกสารในโฟลเดอร์โครงการ · 18 ตุลาคม 2569</Footer>}
+          footer={<Footer>เอกสาร NCB (เครดิตบูโร) · สรุปจากเอกสารในโฟลเดอร์โครงการ · 18 ตุลาคม 2569</Footer>}
           editLink={null}
           feedback={{ content: <span hidden /> }}
           sidebar={{ defaultMenuCollapseLevel: 1 }}

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'ภาพรวมโครงการ NCB',
+  title: 'ภาพรวมโครงการ NCB (เครดิตบูโร)',
   robots: { index: false }
 }
 
@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <>
       <meta httpEquiv="refresh" content={`0;url=${overviewUrl}`} />
-      <p>กำลังเปิด <a href={overviewUrl}>ภาพรวมโครงการ NCB</a></p>
+      <p>กำลังเปิด <a href={overviewUrl}>ภาพรวมโครงการ NCB (เครดิตบูโร)</a></p>
     </>
   )
 }

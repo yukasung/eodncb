@@ -4,14 +4,16 @@
 
 คำในวงเล็บใต้ชื่อฟิลด์หรือตารางเป็นคำอธิบายเพิ่มเติม ไม่ใช่ส่วนหนึ่งของชื่อทางเทคนิคในต้นฉบับ
 
+**หมายเหตุคำจากต้นฉบับ:** NCB (เครดิตบูโร) คือหน่วยงานรวบรวมข้อมูลเครดิต ส่วนข้อความในตาราง เช่น “NCB เป็นคนเติม field” หรือ “NCB mapping code” เป็นถ้อยคำจากเอกสาร ต้องยืนยันว่าผู้กำหนดค่าหมายถึงระบบจัดทำรายงานภายในหรือหน่วยงานเครดิตบูโร ก่อนนำไปพัฒนา
+
 **การใช้ตาราง:** ใช้ร่วมกับ [กฎธุรกิจ](/business-rules) และ [ประเด็นที่ต้องยืนยัน](/open-questions) ค่าตั้งต้นในตารางไม่ยกเลิกเงื่อนไขเฉพาะกรณี
 
 | Field Name | ความหมาย | ชื่อบนรายงาน | ฟิลด์ต้นทาง / ค่าตั้งต้น | ตารางต้นทาง / ข้อกำหนด |
 | --- | --- | --- | --- | --- |
-| Period | เดือนและปีรายงาน NCB | period | NCB เป็นคนเติม field นี้เอง เช่น 2026-05 | NCB เป็นคนเติม field นี้เอง เช่น 2026-05 |
+| Period | เดือนและปีรายงาน NCB (เครดิตบูโร) | period | `NCB เป็นคนเติม field นี้เอง เช่น 2026-05`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB เป็นคนเติม field นี้เอง เช่น 2026-05`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Customer Code | เลข CIF | customer_code | CIFNo | DataEndOfMonth |
 | ID Number | เลขที่รหัสบัตรประชาชน | card_id | IDCard | DataEndOfMonth |
-| Effective Date | วันที่ในรูปแบบปี พ.ศ. | eff_date | NCB เป็นตัวจัดการ format เอง | NCB เป็นตัวจัดการ format เอง |
+| Effective Date | วันที่ในรูปแบบปี พ.ศ. | eff_date | `NCB เป็นตัวจัดการ format เอง`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB เป็นตัวจัดการ format เอง`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Title/Prefix | คำนำหน้า (ตัวหนังสือ) | thai_prefix | TitleId | DataEndOfMonth |
 | First Name | ชื่อ | first_name | FirstName | DataEndOfMonth |
 | Family Name | นามสกุล | family_name1 | LastName | DataEndOfMonth |
@@ -26,26 +28,26 @@
 | Postal Code | รหัสไปรษณีย์ | pstal_code | pstal_code | DataEndOfMonth |
 | Member Code | รหัสสมาชิก (นำส่ง code) | member_code | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 |
 | Member Name | ชื่อย่อสมาชิก (นำส่ง TCG) | member_name | TCG | TCG |
-| Branch Code | รหัสสาขา (ขึ้นอยู่กับ บสย. จะใช้รหัสอะไร NCB ไม่บังคับ ปัจจุบันรายงานโค้ดเดียวคือ 0400) | branch_code | 0400 | 0400 |
+| Branch Code | รหัสสาขา (ขึ้นอยู่กับ บสย. จะใช้รหัสอะไร NCB (เครดิตบูโร) ไม่บังคับ ปัจจุบันรายงานโค้ดเดียวคือ 0400) | branch_code | 0400 | 0400 |
 | Account Number | เลขที่บัญชี / เลข LG (หนังสือค้ำประกันสินเชื่อ) | account_number | LGNo<br/>(เลขหนังสือค้ำประกัน) | DataEndOfMonth |
 | Account Type | ประเภทบัญชี (ประเภทสินเชื่อ โดย บสย. ใช้รหัส 38) | account_type | 38 | 38 |
 | Ownership Indicator | ผู้ถือกรรมสิทธิ์ (ลักษณะการกู้ กู้หลัก = 01 กู้ร่วม = 04) | ownership_indicator | DebtorTypeId | DataEndOfMonth |
 | Date Account Opend / Open Date | วันที่เปิดบัญชี / วันที่อนุมัติค้ำประกันและตั้งวงเงินค้ำประกัน | date_account_opened | LGDate<br/>(วันที่หนังสือค้ำประกันตามฟิลด์ต้นทาง) | DataEndOfMonth |
 | Date Of Last Payment / Last Payment Date | วันที่ชำระหนี้ครั้งล่าสุด | date_of_last_payment | CurrentPaymentDate | DateEndOfMonth |
 | Date Account Closed / Close Date | วันที่ปิดบัญชี / วันที่ยกเลิกการค้ำประกัน L/G (สถานะ 500) | date_account_closed | CloseDate | DataEndOfMonth |
-| As Of Date | วันที่ส่งข้อมูล (ข้อมูล ณ วันที่)<br />วันเดียวกับ eff_date เป็น พ.ศ. | as_of_date | NCB เป็นตัวจัดการ format เอง | NCB เป็นตัวจัดการ format เอง |
+| As Of Date | วันที่ส่งข้อมูล (ข้อมูล ณ วันที่)<br />วันเดียวกับ eff_date เป็น พ.ศ. | as_of_date | `NCB เป็นตัวจัดการ format เอง`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB เป็นตัวจัดการ format เอง`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Credit Limit | วงเงิน (วงเงินสินเชื่อ/ภาระค้ำประกันสินเชื่อ) | credit_limit | AmountDuty | AmountDuty |
 | Amount Owend | วงเงินคงเหลือ (ยอดหนี้คงเหลือ) | amount_owned | DebtBalance | DebtBalance |
 | Amount Past Due | จำนวนค้าง (ยอดหนี้ที่เกินกำหนดชำระ) | amount_past_due | InstallmentOutstanding | InstallmentOutstanding |
-| Number Of Days Past | NCB DPD Code | number_of_days_past | Mapping จาก DPD เป็น code | Mapping จาก DPD เป็น code |
+| Number Of Days Past | NCB (เครดิตบูโร) DPD Code | number_of_days_past | Mapping จาก DPD เป็น code | Mapping จาก DPD เป็น code |
 | Numver Of Days Past (จำนวนวัน) | วันค้าง (จำนวนวันค้างชำระ) | number_of_days_past_2 | DPD | DataEndOfMonth |
 | Default Date | วันที่เริ่มมีการผิดนัดชำระ | default_date | DFDDate | DataEndOfMonth |
 | Installment Frequency (Look up code) | ประเภทของค่างวด (ความถี่ในการผ่อนชำระ) | installment_frequency | ลูกค้า (A-E2) = 0, <br />ลูกหนี้(F) = 30 | ลูกค้า (A-E2) = 0, <br />ลูกหนี้(F) = 30 |
 | Installment Amount | ค่างวดหรือยอดผ่อนชำระ/ยอดชำระในแต่ละงวด) | installment_amount | InstallmentsAmount | DataEndOfMonth |
 | Number Of Installments | จำนวนงวด (จำนวนงวดที่ต้องผ่อนชำระ) | installment_number_of_payments | TDRInstallments | DataEndOfMonth |
-| Account Status | สถานะบัญชี | account_status | NCB mapping code ตามเงื่อนไข | NCB mapping code ตามเงื่อนไข |
+| Account Status | สถานะบัญชี | account_status | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Date Of Last Restructuring / Restructure Date | วันที่ปรับปรุงโครงสร้างหนี้<br />** ดึง TDR Date ล่าสุดมา ไม่สนใจ active/inactive | date_of_restructuring | TDRDateLastest | DataEndOfMonth |
-| TDR Code | TDR Code | code_of_restructuring | NCB mapping code ตามเงื่อนไข | NCB mapping code ตามเงื่อนไข |
+| TDR Code | TDR Code | code_of_restructuring | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) | `NCB mapping code ตามเงื่อนไข`<br/>(ข้อความต้นฉบับ ดูหมายเหตุ) |
 | Number of co-borrower | จำนวนผู้กู้ร่วม (ผู้กู้ + ผู้กู้ร่วม) | number_of_borrower | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม |
 | Minimum Payment | ยอดขั้นต่ำที่ต้องชำระ (%)  (บสย. ไม่ได้นำส่งเป็นยอดขั้นต่ำที่ชำระเหมือนบัตรเครดิต) | minimum_payment | ค่าว่าง | ค่าว่าง |
 | Status LG (หนังสือค้ำประกัน) | สถานะ LG (หนังสือค้ำประกัน) | status_lg<br/>(สถานะหนังสือค้ำประกัน) | StatusLGId<br/>(รหัสสถานะหนังสือค้ำประกัน) | StatusLGId<br/>(รหัสสถานะหนังสือค้ำประกัน) |

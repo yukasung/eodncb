@@ -1,7 +1,7 @@
 export default {
   index: { display: 'hidden' },
   overview: 'ภาพรวมและขอบเขต',
-  'credit-reporting': 'Flowchart ภาพรวมการนำส่ง NCB',
+  'credit-reporting': 'Flowchart ภาพรวมการนำส่ง NCB (เครดิตบูโร)',
   'data-flow': 'กระบวนการและแหล่งข้อมูล',
   fields: 'พจนานุกรมฟิลด์',
   'business-rules': 'กฎ DFD DPD และ TDR',
