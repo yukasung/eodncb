@@ -13,6 +13,8 @@ npm run dev
 
 เปิด http://localhost:3000 สำหรับ development การค้นหาต้องใช้ production build ที่สร้างดัชนีแล้ว
 
+หน้าเริ่มต้นรวมอยู่ที่ `/overview/` โดย `/` พาไปหน้านี้อัตโนมัติ ทั้ง development และ HTML ที่ส่งออก เมนูภาพรวมและโลโก้ใช้หน้า overview เดียวกัน
+
 ## สร้าง HTML และเปิดอ่าน
 
 ```sh

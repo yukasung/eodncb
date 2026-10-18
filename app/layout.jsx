@@ -16,7 +16,7 @@ export default async function RootLayout({ children }) {
       <Head />
       <body>
         <Layout
-          navbar={<Navbar logo={<span className="x:text-sm x:font-semibold x:tracking-normal x:sm:text-base">NCB Project Docs</span>} />}
+          navbar={<Navbar logoLink="/overview" logo={<span className="x:text-sm x:font-semibold x:tracking-normal x:sm:text-base">NCB Project Docs</span>} />}
           pageMap={pageMap}
           docsRepositoryBase="https://github.com/yukasung/eodncb/tree/main"
           search={<Search placeholder="ค้นหาเอกสาร DPD, TDR, ฟิลด์…" emptyResult="ไม่พบเอกสารที่ตรงกับคำค้น" loading="กำลังค้นหา…" errorText="โหลดดัชนีค้นหาไม่สำเร็จ โปรดลองใหม่" />}

@@ -1,5 +1,5 @@
 export default {
-  index: 'เริ่มต้นที่นี่',
+  index: { display: 'hidden' },
   overview: 'ภาพรวมและขอบเขต',
   'credit-reporting': 'Flowchart ภาพรวมการนำส่ง NCB',
   'data-flow': 'กระบวนการและแหล่งข้อมูล',
