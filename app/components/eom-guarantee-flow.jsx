@@ -17,17 +17,17 @@ const cases = {
     result: ['ผ่านครบ 7 ข้อ', 'สถานะบัญชี 10 · ปกติ']
   },
   closed: {
-    title: '1.2 ยกเลิก LG500 · ตรวจทีละข้อครบ 8 ข้อ',
+    title: '1.2 ยกเลิก LG (หนังสือค้ำประกัน) สถานะ 500 · ตรวจทีละข้อครบ 8 ข้อ',
     steps: [
       ...common,
-      { lines: ['StatusLG == 500?'] },
+      { lines: ['StatusLG == 500?', 'สถานะ LG (หนังสือค้ำประกัน)'] },
       { lines: ['DFD Date == NULL?'] },
       { lines: ['DPD == 0?', 'DPD Code 000 / 1160001'] },
       { lines: ['TDR Date == NULL?', 'TDR Code 00'] },
       { lines: ['Last Payment Date == NULL?'] },
       { lines: ['Account Close Date != NULL?'] }
     ],
-    result: ['ผ่านครบ 8 ข้อ', 'สถานะบัญชี 11 · ปิดบัญชี / ยกเลิก LG500']
+    result: ['ผ่านครบ 8 ข้อ · สถานะบัญชี 11', 'ยกเลิก LG (หนังสือค้ำประกัน) สถานะ 500']
   },
   bankruptcy: {
     title: '1.3 ปลดล้มละลายเกิน 2 ปี · ครบทั้ง 8 รายการในข้อความ',

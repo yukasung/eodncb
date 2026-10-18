@@ -2,6 +2,8 @@
 
 ถอดจาก S05: `NCB Field Data [EOM].docx` ตารางที่ 5 โดยรักษาชื่อสะกดตามเอกสาร ช่องไม่ระบุไม่ใช่การกำหนดให้ส่งค่าว่าง
 
+คำในวงเล็บใต้ชื่อฟิลด์หรือตารางเป็นคำอธิบายเพิ่มเติม ไม่ใช่ส่วนหนึ่งของชื่อทางเทคนิคในต้นฉบับ
+
 **การใช้ตาราง:** ใช้ร่วมกับ [กฎธุรกิจ](/business-rules) และ [ประเด็นที่ต้องยืนยัน](/open-questions) ค่าตั้งต้นในตารางไม่ยกเลิกเงื่อนไขเฉพาะกรณี
 
 | Field Name | ความหมาย | ชื่อบนรายงาน | ฟิลด์ต้นทาง / ค่าตั้งต้น | ตารางต้นทาง / ข้อกำหนด |
@@ -12,12 +14,12 @@
 | ID Number / Registration ID | เลขที่นิติบุคคล (นำส่งเป็น 13 หลักหากขึ้นทะเบียนกับ กรมพัฒฯ หากเป็นหน่วยงานรัฐ ให้ใช้เลขของกรมบัญชีกลาง) | card_id | IDCard | DataEndOfMonth |
 | Branch Code | รหัสสาขา (ขึ้นอยู่กับ บสย. จะใช้รหัสอะไร NCB ไม่บังคับ ปัจจุบันรายงานโค้ดเดียวคือ 0400) | branch_code | 0400 | 0400 |
 | Account Type | ประเภทบัญชี (ประเภทสินเชื่อ โดย บสย. ใช้รหัส 38) | account_type | 38 | 38 |
-| Account Number | เลขที่บัญชี / เลขที่หนังสือค้ำประกันสินเชื่อ (LG) | account_number | LGNo | DataEndOfMonth |
+| Account Number | เลขที่บัญชี / เลข LG (หนังสือค้ำประกันสินเชื่อ) | account_number | LGNo<br/>(เลขหนังสือค้ำประกัน) | DataEndOfMonth |
 | Purpose Loan | วัตถุประสงค์ในการขอสินเชื่อ | purpose_loan1 | 1120001 | 1120001 |
 | Purpose Loan | วัตถุประสงค์ในการขอสินเชื่อ | purpose_loan2 | ค่าว่าง | ค่าว่าง |
 | Member Code | รหัสสมาชิก (นำส่ง code) | member_code | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 |
 | Member Name | ชื่อย่อสมาชิก (นำส่ง TCG) | member_name | TCG | TCG |
-| Date Account Opend / Open Date | วันที่เปิดบัญชี / วันที่อนุมัติค้ำประกันและตั้งวงเงินค้ำประกัน | date_account_opened | LGDate | DataEndOfMonth |
+| Date Account Opend / Open Date | วันที่เปิดบัญชี / วันที่อนุมัติค้ำประกันและตั้งวงเงินค้ำประกัน | date_account_opened | LGDate<br/>(วันที่หนังสือค้ำประกันตามฟิลด์ต้นทาง) | DataEndOfMonth |
 | Date Account Closed / Close Date | วันที่ปิดบัญชี / วันที่ยกเลิกการค้ำประกัน L/G (สถานะ 500) | date_account_closed | CloseDate | DataEndOfMonth |
 | As Of Date | วันที่ส่งข้อมูล (ข้อมูล ณ วันที่)<br />วันเดียวกับ eff_date เป็น พ.ศ. | as_of_date | NCB เป็นตัวจัดการ format เอง | NCB เป็นตัวจัดการ format เอง |
 | Payment Terms | ประเภทของค่างวด (ความถี่ในการผ่อนชำระ) | installment_frequency | ลูกค้า (A-E2) = 0, <br />ลูกหนี้(F) = 30 | ลูกค้า (A-E2) = 0, <br />ลูกหนี้(F) = 30 |
@@ -45,7 +47,7 @@
 | Number of co-borrower | จำนวนผู้กู้ร่วม (ผู้กู้ + ผู้กู้ร่วม) | number_of_borrower | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม |
 | Unit Make | ไม่ระบุ | unit_make | ค่าว่าง | ค่าว่าง |
 | Unit Model | ไม่ระบุ | unit_model | ค่าว่าง | ค่าว่าง |
-| Status LG | สถานะ LG | status_lg | StatusLGId | DataEndOfMonth |
+| Status LG (หนังสือค้ำประกัน) | สถานะ LG (หนังสือค้ำประกัน) | status_lg<br/>(สถานะหนังสือค้ำประกัน) | StatusLGId<br/>(รหัสสถานะหนังสือค้ำประกัน) | DataEndOfMonth |
 | Status Grade | เกรดลูกหนี้ | status_grade | Grade | DataEndOfMonth |
 | Claim Pay Date | วันจ่ายค่าประกันชดเชย | claim_pay_date | ClaimPayDate | DataEndOfMonth |
 | Bkr Filling Date | วันที่ขอยื่นรับชำระหนี้ | bkr_filling_date | ReqRepayDate | DataEndOfMonth |
@@ -65,7 +67,7 @@
 | Branch | สาขา (ตัวหนังสือ) | branch | BankBranchName | DataEndOfMonth |
 | Project | โครงการ (ตัวหนังสือ) | project | ClaimTypeName | DataEndOfMonth |
 | Sub Project | โครงการย่อย (ตัวหนังสือ) | sub_project | ClaimSubTypeName | DataEndOfMonth |
-| Open Date Original | Open date เดิม | open_date_original | LGDate | DataEndOfMonth |
+| Open Date Original | Open date เดิม | open_date_original | LGDate<br/>(วันที่หนังสือค้ำประกันตามฟิลด์ต้นทาง) | DataEndOfMonth |
 | Maturity Date | วันที่ครบกำหนดสัญญา | maturity_date | MaturityDate | DataEndOfMonth |
 | Contract Number | เลขแผน TDR active ล่าสุด | contract_number | ContractNo | DataEndOfMonth |
 | Last Contract Number | เลขแผน TDR active/inactive มาแสดงล่าสุด | last_contract_number | ContractNo | DataEndOfMonth |

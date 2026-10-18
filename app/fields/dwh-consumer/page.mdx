@@ -2,6 +2,8 @@
 
 ถอดจาก S07: `NCB (DATAWAREHOUSE).docx` ตารางที่ 1 โดยรักษาชื่อสะกดตามเอกสาร ช่องไม่ระบุไม่ใช่การกำหนดให้ส่งค่าว่าง
 
+คำในวงเล็บใต้ชื่อฟิลด์หรือตารางเป็นคำอธิบายเพิ่มเติม ไม่ใช่ส่วนหนึ่งของชื่อทางเทคนิคในต้นฉบับ
+
 **การใช้ตาราง:** ใช้ร่วมกับ [กฎธุรกิจ](/business-rules) และ [ประเด็นที่ต้องยืนยัน](/open-questions) ค่าตั้งต้นในตารางไม่ยกเลิกเงื่อนไขเฉพาะกรณี
 
 | Field Name | ความหมาย | ชื่อบนรายงาน | ฟิลด์ต้นทาง / ค่าตั้งต้น | ตารางต้นทาง / ข้อกำหนด |
@@ -25,7 +27,7 @@
 | Member Code | รหัสสมาชิก (นำส่ง code) | member_code | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 |
 | Member Name | ชื่อย่อสมาชิก (นำส่ง TCG) | member_name | TCG | TCG |
 | Branch Code | รหัสสาขา (ขึ้นอยู่กับ บสย. จะใช้รหัสอะไร NCB ไม่บังคับ ปัจจุบันรายงานโค้ดเดียวคือ 0400) | branch_code | 0400 | 0400 |
-| Account Number | เลขที่บัญชี / เลขที่หนังสือค้ำประกันสินเชื่อ (LG) | account_number | accountnumber | TEMPDWHCBS |
+| Account Number | เลขที่บัญชี / เลข LG (หนังสือค้ำประกันสินเชื่อ) | account_number | accountnumber | TEMPDWHCBS |
 | Account Type | ประเภทบัญชี (ประเภทสินเชื่อ โดย บสย. ใช้รหัส 38) | account_type | 38 | 38 |
 | Ownership Indicator | ผู้ถือกรรมสิทธิ์ (ลักษณะการกู้ กู้หลัก = 01 กู้ร่วม = 04) | ownership_indicator | data_type | TEMPDWHCBS |
 | Date Account Opend / Open Date | วันที่เปิดบัญชี / วันที่อนุมัติค้ำประกันและตั้งวงเงินค้ำประกัน | date_account_opened | dateaccountopend | TEMPDWHCBS |
@@ -46,7 +48,7 @@
 | TDR Code | TDR Code | code_of_restructuring | 00 | 00 |
 | Number of co-borrower | จำนวนผู้กู้ร่วม (ผู้กู้ + ผู้กู้ร่วม) | number_of_borrower | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม |
 | Minimum Payment | ยอดขั้นต่ำที่ต้องชำระ (%)  (บสย. ไม่ได้นำส่งเป็นยอดขั้นต่ำที่ชำระเหมือนบัตรเครดิต) | minimum_payment | ค่าว่าง | ค่าว่าง |
-| Status LG | สถานะ LG | status_lg | statuslg | statuslg |
+| Status LG (หนังสือค้ำประกัน) | สถานะ LG (หนังสือค้ำประกัน) | status_lg<br/>(สถานะหนังสือค้ำประกัน) | statuslg<br/>(สถานะหนังสือค้ำประกัน) | statuslg<br/>(สถานะหนังสือค้ำประกัน) |
 | Status Grade | เกรดลูกหนี้ | status_grade | Grade | Grade |
 | Claim Pay Date | วันจ่ายค่าประกันชดเชย | claim_pay_date | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
 | Bkr Filling Date | วันที่ขอยื่นรับชำระหนี้ | bkr_filling_date | ReqRepayDate | ReqRepayDate |

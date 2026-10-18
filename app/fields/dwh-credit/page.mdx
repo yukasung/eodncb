@@ -2,6 +2,8 @@
 
 ถอดจาก S07: `NCB (DATAWAREHOUSE).docx` ตารางที่ 5 โดยรักษาชื่อสะกดตามเอกสาร ช่องไม่ระบุไม่ใช่การกำหนดให้ส่งค่าว่าง
 
+คำในวงเล็บใต้ชื่อฟิลด์หรือตารางเป็นคำอธิบายเพิ่มเติม ไม่ใช่ส่วนหนึ่งของชื่อทางเทคนิคในต้นฉบับ
+
 **การใช้ตาราง:** ใช้ร่วมกับ [กฎธุรกิจ](/business-rules) และ [ประเด็นที่ต้องยืนยัน](/open-questions) ค่าตั้งต้นในตารางไม่ยกเลิกเงื่อนไขเฉพาะกรณี
 
 | Field Name | ความหมาย | ชื่อบนรายงาน | ฟิลด์ต้นทาง / ค่าตั้งต้น | ตารางต้นทาง / ข้อกำหนด |
@@ -12,7 +14,7 @@
 | ID Number / Registration ID | เลขที่นิติบุคคล (นำส่งเป็น 13 หลักหากขึ้นทะเบียนกับ กรมพัฒฯ หากเป็นหน่วยงานรัฐ ให้ใช้เลขของกรมบัญชีกลาง) | card_id | idnumber | TEMPDWHCBS |
 | Branch Code | รหัสสาขา (ขึ้นอยู่กับ บสย. จะใช้รหัสอะไร NCB ไม่บังคับ ปัจจุบันรายงานโค้ดเดียวคือ 0400) | branch_code | 0400 | 0400 |
 | Account Type | ประเภทบัญชี (ประเภทสินเชื่อ โดย บสย. ใช้รหัส 38) | account_type | 38 | 38 |
-| Account Number | เลขที่บัญชี / เลขที่หนังสือค้ำประกันสินเชื่อ (LG) | account_number | accountnumber | TEMPDWHCBS |
+| Account Number | เลขที่บัญชี / เลข LG (หนังสือค้ำประกันสินเชื่อ) | account_number | accountnumber | TEMPDWHCBS |
 | Purpose Loan | วัตถุประสงค์ในการขอสินเชื่อ | purpose_loan1 | 1120001 | 1120001 |
 | Purpose Loan | วัตถุประสงค์ในการขอสินเชื่อ | purpose_loan2 | ค่าว่าง | ค่าว่าง |
 | Member Code | รหัสสมาชิก (นำส่ง code) | member_code | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 | แยก SIT/UAT/PROD<br />ปัจจุบันใช้ SP17020000 |
@@ -45,8 +47,8 @@
 | Number of co-borrower | จำนวนผู้กู้ร่วม (ผู้กู้ + ผู้กู้ร่วม) | number_of_borrower | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม | จำนวน = ผู้กู้หลัก + จน.ผู้กู้ร่วม |
 | Unit Make | ไม่ระบุ | unit_make | ค่าว่าง | ค่าว่าง |
 | Unit Model | ไม่ระบุ | unit_model | ค่าว่าง | ค่าว่าง |
-| Status LG | สถานะ LG | status_lg | statuslg | TEMPDWHCBS |
-| Status Grade | เกรดลูกหนี้ | status_grade | Grade | DataLG |
+| Status LG (หนังสือค้ำประกัน) | สถานะ LG (หนังสือค้ำประกัน) | status_lg<br/>(สถานะหนังสือค้ำประกัน) | statuslg<br/>(สถานะหนังสือค้ำประกัน) | TEMPDWHCBS |
+| Status Grade | เกรดลูกหนี้ | status_grade | Grade | DataLG<br/>(ตารางข้อมูลหนังสือค้ำประกัน) |
 | Claim Pay Date | วันจ่ายค่าประกันชดเชย | claim_pay_date | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
 | Bkr Filling Date | วันที่ขอยื่นรับชำระหนี้ | bkr_filling_date | ReqRepayDate | LTDataCaseMain |
 | Filling Amount | จำนวนเงินขอยื่นรับชำระหนี้ | filling_amount | FillingAmount | LTDataCaseMain |
@@ -61,10 +63,10 @@
 | Warrant Date | วันที่ออกหมาย | warrant_date | WarrantDate | LTDataCaseMain |
 | Jm Trial Date | วันที่พิพากษาชั้นต้น | jm_trial_date | JmTrialDate | LTDataCaseMain |
 | Red Case No | เลขที่คดีแดง | red_case_no | RedCaseNo | LTDataCaseMain |
-| Bank | ธนาคาร (ตัวหนังสือ) | bank | BankId | DataLG |
+| Bank | ธนาคาร (ตัวหนังสือ) | bank | BankId | DataLG<br/>(ตารางข้อมูลหนังสือค้ำประกัน) |
 | Branch | สาขา (ตัวหนังสือ) | branch | bankbranchcode | TEMPDWHCBS |
-| Project | โครงการ (ตัวหนังสือ) | project | ClaimTypeId | DataLG |
-| Sub Project | โครงการย่อย (ตัวหนังสือ) | sub_project | ClaimSubTypeId | DataLG |
+| Project | โครงการ (ตัวหนังสือ) | project | ClaimTypeId | DataLG<br/>(ตารางข้อมูลหนังสือค้ำประกัน) |
+| Sub Project | โครงการย่อย (ตัวหนังสือ) | sub_project | ClaimSubTypeId | DataLG<br/>(ตารางข้อมูลหนังสือค้ำประกัน) |
 | Open Date Original | Open date เดิม | open_date_original | dateaccountopend | TEMPDWHCBS |
 | Maturity Date | วันที่ครบกำหนดสัญญา | maturity_date | ค่า default 1900-01-01 | ค่า default 1900-01-01 |
 | Contract Number | เลขแผน TDR active ล่าสุด | contract_number | ค่าว่าง | ค่าว่าง |
