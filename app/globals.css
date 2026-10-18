@@ -1,24 +1,27 @@
 :root { --nextra-content-width: 92rem; }
-body { font-family: "Leelawadee UI", "Noto Sans Thai", Tahoma, system-ui, sans-serif; }
+/* Match mattersolv_docs/docs/app/globals.css and Nextra 4.6.1 typography. */
+body { font-feature-settings: 'rlig' 1, 'calt' 1; }
 .brand { display: inline-flex; gap: .7rem; align-items: center; }
 .brand-mark { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: .5rem; background: #0f766e; color: white; font-weight: 800; }
 .brand-sub { font-weight: 400; color: #64748b; }
-article { line-height: 1.85; }
-article h1 { letter-spacing: -.025em; }
-article table { font-size: .9rem; line-height: 1.65; }
+.brand strong { font-size: .875rem; font-weight: 600; letter-spacing: normal; }
+@media(min-width: 640px) { .brand strong { font-size: 1rem; } }
+footer { font-size: .75rem; line-height: 1rem; }
+code.text-\[\.9em\] { font-size: 14px; }
 article th { white-space: nowrap; }
 article code { overflow-wrap: anywhere; }
 article div:has(> svg.flowchart) { overflow-x: auto; padding: 1rem; margin: 1.25rem 0; border: 1px solid #94a3b840; border-radius: .6rem; }
 article svg.flowchart { max-width: none; margin-inline: auto; }
 .hero { padding: 1.6rem 0 1rem; border-bottom: 1px solid #0f766e40; margin-bottom: 1.6rem; }
-.eyebrow { color: #0f766e; font-size: .8rem; font-weight: 700; letter-spacing: .12em; }
-.hero p { max-width: 52rem; color: #64748b; font-size: 1.1rem; }
+.eyebrow { color: #0f766e; font-size: .75rem; font-weight: 600; letter-spacing: normal; }
+.hero p { max-width: 52rem; color: #64748b; font-size: 1rem; line-height: 1.75; }
 .doc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin: 1.5rem 0; }
 .doc-link { display: block; padding: 1.1rem 1.2rem; border: 1px solid #94a3b840; border-radius: .7rem; text-decoration: none !important; transition: border-color .15s, background .15s; }
 .doc-link:hover { border-color: #0d9488; background: #0d94880a; }
 .doc-link strong { display: block; margin-bottom: .35rem; }
-.doc-link span { font-size: .88rem; color: #64748b; }
+.doc-link span { font-size: .875rem; line-height: 1.25rem; color: #64748b; }
 .dark .hero p, .dark .doc-link span, .dark .brand-sub { color: #94a3b8; }
 .dark .eyebrow { color: #5eead4; }
 @media(max-width: 640px) { .doc-grid { grid-template-columns: 1fr; } .brand-sub { display: none; } }
+@media(max-width: 720px) { .hero p { font-size: .9rem; } }
 @media print { nav, aside, footer { display: none !important; } article { max-width: 100% !important; } }
