@@ -1,19 +1,8 @@
 # พจนานุกรมฟิลด์
 
+บสย. จัดทำข้อมูลตัวตน ภาระค้ำประกัน และหนี้เพื่อนำส่ง NCB (เครดิตบูโร) เริ่มจากความหมายของฟิลด์หลัก แล้วเลือก Mapping EOM หรือ DWH ตามแหล่งข้อมูลที่ยืนยันก่อนเปิดตารางรายฟิลด์
+
 ตารางในหมวดนี้ถอดจากตาราง Word โดยรักษาชื่อฟิลด์ ชื่อตาราง และค่าตั้งต้นตามต้นฉบับ ช่องที่ไม่มีข้อมูลแสดงเป็น “ไม่ระบุ” เพื่อแยกจากข้อความ “ค่าว่าง”, `NULL` หรือ `0` ที่เอกสารกำหนดไว้จริง
-
-## เลือกชุด Mapping
-
-| ชุด | Consumer | Commercial Profile | Commercial Report |
-| --- | --- | --- | --- |
-| EOM · S05 | [ดูตาราง](/fields/eom-consumer) | [ดูตาราง](/fields/eom-profile) | [ดูตาราง](/fields/eom-credit) |
-| DWH · S07 | [ดูตาราง](/fields/dwh-consumer) | [ดูตาราง](/fields/dwh-profile) | [ดูตาราง](/fields/dwh-credit) |
-
-แต่ละชุดมีวัตถุประสงค์และค่าตั้งต้นต่างกัน ไม่ใช่ประวัติเวอร์ชันที่ยืนยันลำดับก่อนหลังแล้ว
-
-ดู [รหัสอ้างอิง ID Type และ Registration Type](/fields/reference-codes) เพิ่มเติม
-
-ดู [Flowchart และเงื่อนไขสถานะบัญชีจาก EOM ทั้ง 3 กลุ่ม](/account-status#eom-account-status) ประกอบฟิลด์ `account_status`
 
 ## ความหมายของฟิลด์หลัก
 
@@ -34,6 +23,19 @@
 | account_status | สถานะบัญชีที่คำนวณจากกฎธุรกิจ |
 | date_of_restructuring | วันปรับโครงสร้างหนี้ |
 | code_of_restructuring | รหัส TDR 00 หรือ 02 ตามเงื่อนไข |
+
+## เลือกชุด Mapping
+
+| ชุด | Consumer | Commercial Profile | Commercial Report |
+| --- | --- | --- | --- |
+| EOM · S05 | [ดูตาราง](/fields/eom-consumer) | [ดูตาราง](/fields/eom-profile) | [ดูตาราง](/fields/eom-credit) |
+| DWH · S07 | [ดูตาราง](/fields/dwh-consumer) | [ดูตาราง](/fields/dwh-profile) | [ดูตาราง](/fields/dwh-credit) |
+
+แต่ละชุดมีวัตถุประสงค์และค่าตั้งต้นต่างกัน ไม่ใช่ประวัติเวอร์ชันที่ยืนยันลำดับก่อนหลังแล้ว
+
+ดู [รหัสอ้างอิง ID Type และ Registration Type](/fields/reference-codes) เพิ่มเติม
+
+ดู [Flowchart และเงื่อนไขสถานะบัญชีจาก EOM ทั้ง 3 กลุ่ม](/account-status#eom-account-status) ประกอบฟิลด์ `account_status`
 
 ## ค่าตั้งต้นและ Master
 

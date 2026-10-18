@@ -6,7 +6,7 @@ import './globals.css'
 
 export const metadata = {
   title: { default: 'NCB (เครดิตบูโร) Docs', template: '%s · NCB (เครดิตบูโร) Docs' },
-  description: 'สรุปข้อกำหนด การเชื่อมโยงข้อมูล EOD EOM DWH และการนำส่ง NCB (เครดิตบูโร) ของ บสย.'
+  description: 'สรุปบทบาท บสย. การนำส่ง NCB (เครดิตบูโร) ข้อมูล EOD และ EOM พร้อมกฎ ฟิลด์ และการทดสอบ'
 }
 
 export default async function RootLayout({ children }) {
